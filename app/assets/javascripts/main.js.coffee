@@ -9,3 +9,6 @@
 
 # $("#vimeo").click () ->
 #   console.log "vim click"
+
+$("#register").click () ->
+  $("#stripe").foundation('reveal', 'open')
