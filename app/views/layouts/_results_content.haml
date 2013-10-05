@@ -1,0 +1,30 @@
+.row#results
+  .small-10.large-10.columns.large-centered.small-centered
+    .top-margined
+      %p.main.scripty.red
+        Results From John's Efforts as a Technical Leader.
+.row
+  .small-10.large-8.columns.large-centered.small-centered
+    %ol{type: "numbered", class: "small-top-margined"}
+      %li.session 
+        With 10 hours of instructional time, UX designer at Causes.com #{link_to "Stewart McCoy", "http://www.twitter.com/stewartmccoy", target: "new", id: "results_stewart_twitter"}, built footysubs, a bay area pickup soccer scheduling app.  
+      .row
+        .large-6.columns
+          = image_tag "footy_a1.png", height: "350px", width: "180px", class: "footy"
+          -# %img{ src: "footy_a1", height: "350px", width: "180px", class: "footy"}
+        .large-6.columns
+          %h4.top-margined
+            Technology Used
+          %ul.no-bullet
+            %li Heroku
+            %li Twitter Bootstrap
+            %li Oauth
+            %li Twilio
+      %li.session John's meetup group, #{link_to "RubyWhiteBelts", "http://www.meetup.com/Ruby-White-Belts/", id: "results_rwb", target: "new"} gained 300 memebers in its first weeks.  John has taught numerous people in the bay area RubyonRails fundamentals.  
+      %li.session
+        John helped 
+        #{ link_to "Paul Chong", "http://www.linkedin.com/pub/paul-chong/7/39b/6bb", target: "new", id: "results_chong"},
+        #{ link_to "Alyssa Ravasio", "http://www.linkedin.com/pub/alyssa-ravasio/17/147/231/", target: "new", id: "results_alyssa"}, 
+        #{ link_to "Doktor Gurson", "http://twitter.com/doktorgurson", target: "new", id: "results_doktor"} and
+        #{ link_to "Evan Peelle", "http://twitter.com/evanpeelle", target: "new", id: "results_evan"} 
+        get accepted into Dev Bootcamp or Hack Reactor.

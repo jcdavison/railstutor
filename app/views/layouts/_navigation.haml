@@ -1,0 +1,21 @@
+.sticky
+  %nav.top-bar
+    %ul.title-area.nav
+      %li.name
+      %li.toggle-topbar.menu-icon.menu
+        %a{href: "#"}
+          %span 
+            Menu
+    %section.top-bar-section
+      %ul.right.nav
+        %li.has-dropdown
+          %li.divider
+          %li
+            = link_to "Curriculum", "#curriculum", id: "nav_curriculum"
+          %li.divider
+          %li
+            = link_to "Results", "#results", id: "nav_results"
+          %li.divider
+          %li
+            = link_to "Sign Up", "#register", id: "nav_register"
+          %li.divider

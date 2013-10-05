@@ -1,0 +1,5 @@
+tasks
+
+  video of self intro and talk about the plan
+  mixpanel integration
+  email support for welcome signups

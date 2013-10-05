@@ -1,0 +1,12 @@
+!!! 5
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}/
+  %body
+    - if @customer
+      %h3
+        Greetings #{@customer.email},
+    %p 
+      As you know from watching the video, I made RubyonRailsTutor to help people who want to learn about full stack rails engineering.  Please find me on #{link_to "@railstutor", "http://www.twitter.com/railstutor"} or shoot me an email @ #{ mail_to "john@rubyonrailstutor.com"}.
+    %h3
+      \- John
