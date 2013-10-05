@@ -7,14 +7,14 @@
       .stripe
         .row
           .large-6.columns.large-centered
-            %select
-              %option{value: "1 sesssion - $60"}
+            %select{id: "product"}
+              %option{value: "60"}
                 1 Session - $60
-              %option{value: "3 sesssions - $170"}
+              %option{value: "170"}
                 3 sesssions - $170
-              %option{value: "5 sesssions - $250"}
+              %option{value: "250"}
                 5 sesssions - $250
-              %option{value: "10 sesssions - $480"}
+              %option{value: "480"}
                 10 sesssions - $480
       .row
         .large-6.columns
@@ -27,9 +27,9 @@
         .large-2.columns
           %input{type:"text", placeholder: "cvc code", data: { stripe: "cvc"},  size: "3", id: "validates_presence", id: "card-cvc"}
         .large-2.columns
-          %input{type:"text", placeholder: "exp month", data: { stripe: "exp-year"}, size: "20", id: "validates_presence", id: "card-year"}
+          %input{type:"text", placeholder: "exp month", data: { stripe: "exp-month"}, size: "20", id: "validates_presence", id: "card-month"}
         .large-2.columns
-          %input{type:"text", placeholder: "exp year", data: { stripe: "exp-month"}, size: "20", id: "validates_presence", id: "card-month"}
+          %input{type:"text", placeholder: "exp year", data: { stripe: "exp-year"}, size: "20", id: "validates_presence", id: "card-year"}
       .row
         .large-4.columns.large-centered
           .button.radius#checkout

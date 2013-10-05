@@ -1,35 +1,38 @@
 validate_form = () ->
   $("#checkout").click ->
     if validate_presence() is "valid" 
-      newStudentEmail = $("#newStudentEmail").val()
-      newStudentName = $("#newStudentName").val()
-      console.log "stripe clicked"
+      email = $("#email").val()
+      name = $("#name").val()
       number = $('#card-number').val()
       cvc = $('#card-cvc').val()
       exp_month = $('#card-month').val()
       exp_year= $('#card-year').val()
-      console.log number, cvc, exp_month, exp_year
+      amount = $('#product').val() * 100
+      console.log "amount", amount
+
       Stripe.card.createToken(
         number: number 
         cvc: cvc 
         exp_month: exp_month 
         exp_year: exp_year 
       , 
-        (response) -> 
-         console.log response
+        (status, response) -> 
+          unless response.error
+            $.ajax
+              type: "POST"
+              url: "/main.json"
+              data: 
+                email: email
+                name: name
+                stripe: response
+                amount: amount
+              success: (json_data) ->
+                if json_data.response isnt null
+                  message = "Welcome " + json_data.response
+                  console.log message
+                $("#ResponseEmail").text(message)
+                $("#thankyou").foundation('reveal', 'open')
       )
-      # $.ajax
-      #   type: "POST"
-      #   url: "/main.json"
-      #   data: {
-      #     email: newStudentEmail 
-      #     name: newStudentName 
-      #   }
-      #   success: (json_data) ->
-      #     if json_data.response isnt null
-      #       message = "Welcome " + json_data.response
-      #     $("#ResponseEmail").text(message)
-      #     $("#thankyou").foundation('reveal', 'open')
     else
       return
 

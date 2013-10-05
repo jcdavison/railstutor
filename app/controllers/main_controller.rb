@@ -8,10 +8,12 @@ class MainController < ApplicationController
 
   def create
     @student = Student.create(email: params[:email], first_name: params[:name])
+
+    binding.pry
     begin
       customer = Stripe::Customer.create(
         email: params[:email],
-        card: params[:stripeToken]
+        card: params[:stripe][:id]
       )
       @amount = params[:amount]
       charge = Stripe::Charge.create(
@@ -20,9 +22,10 @@ class MainController < ApplicationController
           :description => @student.email,
           :currency    => 'usd'
       )
-    rescue Stripe::CardError => e
-      render json: {response: "stripe error#{e.message}"}
+      rescue Stripe::CardError => e
+        render json: {response: "stripe error#{e.message}"}
     end
+
     if @student
       response_message = @student.first_name
       mail = StudentMailer.new_student_notif(@student)
@@ -32,7 +35,7 @@ class MainController < ApplicationController
     end
     respond_with do |format|
       format.json{
-        render json: {response: response_message }
+        render json: {response: {message: "complete", amount: @amount} }
       } 
     end
   end
