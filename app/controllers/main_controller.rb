@@ -7,8 +7,22 @@ class MainController < ApplicationController
   end
 
   def create
-    # binding.pry
     @student = Student.create(email: params[:email], first_name: params[:name])
+    begin
+      customer = Stripe::Customer.create(
+        email: params[:email],
+        card: params[:stripeToken]
+      )
+      @amount = params[:amount]
+      charge = Stripe::Charge.create(
+          :customer    => customer.id,
+          :amount      => @amount,
+          :description => @student.email,
+          :currency    => 'usd'
+      )
+    rescue Stripe::CardError => e
+      render json: {response: "stripe error#{e.message}"}
+    end
     if @student
       response_message = @student.first_name
       mail = StudentMailer.new_student_notif(@student)

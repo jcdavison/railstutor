@@ -1,6 +1,6 @@
 @import "variables";
 
-body, #thankyou {
+body, #stripe {
   background-color: $darkgrey;
 }
 
@@ -55,6 +55,12 @@ ul.nav > li {
 }
 
 .journey {
+  font-family: "Montserrat";
+  color: $sublimepurple;
+  font-size: 2.5em;
+}
+
+.stripe {
   font-family: "Montserrat";
   color: $sublimepurple;
   font-size: 2.5em;

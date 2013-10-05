@@ -12,6 +12,8 @@ end
 module Railstutor
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
+    config.stripe.api_key = ENV['STRIPE_API_KEY']
+    config.stripe.publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')

@@ -8,6 +8,8 @@ gem 'pg', '~> 0.14.0'
 gem 'sendgrid-rails', '~> 2.0'
 gem 'jquery-rails'
 gem "gon", "~> 4.1.1"
+gem 'stripe-rails'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
