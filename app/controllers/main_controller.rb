@@ -7,27 +7,25 @@ class MainController < ApplicationController
   end
 
   def create
-    @student = Student.create(email: params[:email], first_name: params[:name])
+    @amount = 75000
+    @student = Student.create(email: params[:email], first_name: params[:first_name], last_name: params[:last_name], info: params[:pmt_token])
 
-    binding.pry
     begin
-      customer = Stripe::Customer.create(
-        email: params[:email],
-        card: params[:stripe][:id]
-      )
-      @amount = params[:amount]
       charge = Stripe::Charge.create(
-          :customer    => customer.id,
+          :card    => params[:pmt_token],
           :amount      => @amount,
           :description => @student.email,
           :currency    => 'usd'
       )
       rescue Stripe::CardError => e
-        render json: {response: "stripe error#{e.message}"}
+        respond_with do |format|
+          format.json {
+            render json: {error: "stripe error#{e.message}"}
+          }
+        end
     end
 
     if @student
-      response_message = @student.first_name
       mail = StudentMailer.new_student_notif(@student)
       if mail
         mail.deliver
@@ -35,7 +33,7 @@ class MainController < ApplicationController
     end
     respond_with do |format|
       format.json{
-        render json: {response: {message: "complete", amount: @amount} }
+        render json: {message: "Congratulation #{@student.first_name}, transaction in amount of $750 complete, Welcome to RubyonRailsTutor.com, look for email from john@rubyonrailstutor.com"} 
       } 
     end
   end
