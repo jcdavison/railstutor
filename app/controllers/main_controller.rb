@@ -26,6 +26,7 @@ class MainController < ApplicationController
     end
 
     if @student
+      @student.update_attributes(paid: true)
       mail = StudentMailer.new_student_notif(@student)
       if mail
         mail.deliver

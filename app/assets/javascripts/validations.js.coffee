@@ -14,8 +14,6 @@ class Payment
     @last4 = null
 
   confirmPmt: () ->
-    console.log "confirmPmt"
-    console.log @pmtToken
     $("#last4").text @last4
     $('#confirmPmt').foundation('reveal', 'open');
     @submitPmt()
@@ -32,13 +30,11 @@ class Payment
           pmt_token: @pmtToken
         success: (response) =>
           if response.message
-            console.log response.message
             $('#thankYouMessage').text response.message
             $('#confirmPmt').foundation('reveal', 'close');
             $("#thankYou").foundation('reveal', 'open')
             @resetPage()
           if response.error
-            console.log response.error
             $('#confirmPmt').foundation('reveal', 'close');
             @cardError(response.error)
 
@@ -72,17 +68,13 @@ class Payment
       exp_year: @expYear 
     , 
     (status, response) => 
-      console.log status
-      console.log response
       if response.errors
-        console.log response.errors
         @cardError(response.errors)
         return false
       unless response.errors
         @pmtToken = response.id
         @last4 = "'#{response.card.last4}'"
         @confirmPmt()
-        console.log "getpmtToken exited"
     )
 
   validateCard: () ->
