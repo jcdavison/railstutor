@@ -4,11 +4,12 @@
 
 // $em-base: 16px;
 
+
 // We use these to control various global styles
 $body-bg: white;
-// $body-font-color: #222;
+$body-font-color: $lightblue;
 // $body-font-family: 'PlayBall', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$body-font-family: 'OpenSans', sans-serif;
+$body-font-family: "Roboto-Thin", sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -138,11 +139,11 @@ $anchor-font-color: $primary-color;
 // $definition-list-margin-bottom: emCalc(12px);
 
 // We use these to style blockquotes
-// $blockquote-font-color: lighten($header-font-color, 30%);
+$blockquote-font-color: $lightblue;
 // $blockquote-padding: emCalc(9px) emCalc(20px) 0 emCalc(19px);
-// $blockquote-border: 1px solid #ddd;
+$blockquote-border: 1px solid lighten($sublimepurple, 20%);
 // $blockquote-cite-font-size: emCalc(13px);
-// $blockquote-cite-font-color: lighten($header-font-color, 20%);
+$blockquote-cite-font-color: lighten($sublimepurple, 20%);
 // $blockquote-cite-link-color: $blockquote-cite-font-color;
 
 // Acronym styles
@@ -180,9 +181,9 @@ $anchor-font-color: $primary-color;
 
 // We use these to style the labels in different ways
 // $label-pointer: pointer;
-// $label-font-size: emCalc(14px);
+$label-font-size: emCalc(14px);
 // $label-font-weight: 500;
-// $label-font-color: lighten(#000, 30%);
+$label-font-color: white;
 // $label-bottom-margin: emCalc(3px);
 // $input-font-family: inherit;
 $input-font-color: white;

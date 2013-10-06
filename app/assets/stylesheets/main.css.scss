@@ -12,9 +12,6 @@ body, #stripe {
   font-family: "Roboto";
 }
 
-.red {
-  color: red;
-}
 
 .screen {
   // background: rgba(255, 255, 255, 0.3);
@@ -54,6 +51,9 @@ ul.nav > li {
   padding: 5px;
 }
 
+.curriculum {
+  font-size: 1.5em;
+}
 .journey {
   font-family: "Montserrat";
   color: $sublimepurple;
@@ -63,7 +63,7 @@ ul.nav > li {
 .stripe {
   font-family: "Montserrat";
   color: $sublimepurple;
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
 .railstutor {
@@ -166,7 +166,10 @@ ul.nav > li {
 // profile pics
 
 .profile {
-  border-radius: 5px;
+  border-radius: 2px;
+  height: 75px;
+  width: 75px;
+  margin-top: 1.2em;
 }
 
 // thankoumodal

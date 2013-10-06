@@ -1,0 +1,59 @@
+.row
+  .large-10.large-centered.columns
+    .major
+      Register
+    .stripe.padded
+      $750 for the October 21 starting Cohort.
+.row
+  .large-6.large-centered.columns
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          first name
+      .small-9.columns
+        %input{type:"text", placeholder: "first", id: "firstName", class: "validates-presence"}
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          last name
+      .small-9.columns
+        %input{type:"text", placeholder: "last", id: "lastName", class: "validates-presence"}
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          email
+      .small-9.columns
+        %input{type:"text", placeholder: "email", id: "email", class: "validates-presence"}
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          credit card #
+      .small-9.columns
+        %input{type:"text", placeholder: "credit card #", id: "cardNumber", class: "validates-presence"}
+    .row
+      .small-2.columns.small-offset-1
+        %label{ for: "right-label", class: "right inline"}
+          exp
+      .small-1.columns
+        %label{ for: "right-label", class: "right inline"}
+          MM
+      .small-2.columns
+        %input{type:"text", placeholder: "01", id: "expMonth", class: "validates-presence"}
+      .small-1.columns
+        %label{ for: "right-label", class: "right inline"}
+          YY
+      .small-2.columns
+        %input{type:"text", placeholder: "15", id: "expYear", class: "validates-presence"}
+      .small-1.columns
+        %label{ for: "right-label", class: "right inline"}
+          cvc
+      .small-2.columns
+        %input{type:"text", placeholder: "123", id: "cardCvv", class: "validates-presence"}
+    .row
+      .small-10.small-centered.columns
+        %label
+          Secure Credit Card Procession Powered by Stripe and SSL.
+    .row
+      .large-4.columns.large-centered
+        .button.radius#pay
+          Register
