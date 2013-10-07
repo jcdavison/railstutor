@@ -43,7 +43,7 @@ class Payment
 
   resetPage: () ->
     $('#closeThankYou').click ->
-      location.reload()
+      window.location = "https://www.rubyonrailstutor.com"
     
   cardError: (errors = null) ->
     if errors
