@@ -1,7 +1,23 @@
 .reveal-modal#thankYou
   .row
-    .small-10.columns.small-centered#thankYouMessage
-      thanks for playing
+    .small-9.columns.small-centered
+      .stripe.padded.major#welcome
+      .row
+        .large-10.columns.large-centered
+          .quote
+            Transaction in amount of $750 complete!
+          .quote
+            Lookout for email from john@rubyonrailstutor.com with detailed instructions on next steps.
+          .quote
+            Contact me directly if you have any questions.
+      .row
+        .large-9.large-offset-3.padded
+          .stripe
+            \- John Davison
+          .stripe
+            = mail_to "john@rubyonrailstutor.com"
+          .stripe
+            = link_to "@railstutor", "http://www.twitter.com/railstutor", targer: "new"
   %a{class: "close-reveal-modal", id: "closeThankYou"}
     &#215;
 

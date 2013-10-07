@@ -1,12 +1,33 @@
 .reveal-modal#confirmPmt
   .row
-    .small-10.columns.small-centered
-      Credit Card ending in 
-      %span#last4
-        *
-      is about to be charged $750
-      .button#submitPmt
-        Confirm & Pay
+    .small-7.columns.small-centered
+      .stripe.padded
+        Confirmation
+      .row
+        .large-3.columns.padded
+          %label
+            first name
+        .large-9#confirmFirstName.columns.padded
+      .row
+        .large-3.columns.padded
+          %label
+            last name
+        .large-9#confirmLastName.columns.padded
+      .row
+        .large-3.columns.padded
+          %label
+            email
+        .large-9#confirmEmail.columns.padded
+      .row
+        .small-10.columns.small-centered.padded
+          Credit Card ending in 
+          %span#last4
+            *
+          is about to be charged $750
+      .row
+        .large-4.large-centered.columns
+          .button#submitPmt.padded
+            Confirm & Pay
       %label
         Secure Credit Card Processing Powered by Stripe and SSL.
   %a{class: "close-reveal-modal"}

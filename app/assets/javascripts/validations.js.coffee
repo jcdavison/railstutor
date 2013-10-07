@@ -15,6 +15,9 @@ class Payment
 
   confirmPmt: () ->
     $("#last4").text @last4
+    $("#confirmFirstName").text @firstName
+    $("#confirmLastName").text @lastName
+    $("#confirmEmail").text @email
     $('#confirmPmt').foundation('reveal', 'open');
     @submitPmt()
 
@@ -30,7 +33,7 @@ class Payment
           pmt_token: @pmtToken
         success: (response) =>
           if response.message
-            $('#thankYouMessage').text response.message
+            $('#welcome').text "Welcome #{@firstName} !"
             $('#confirmPmt').foundation('reveal', 'close');
             $("#thankYou").foundation('reveal', 'open')
             @resetPage()
