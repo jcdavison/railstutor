@@ -1,5 +1,12 @@
 tasks
+  - reduce counter
+  - fix copy
+  - update welcome email
+  - make a better video
+  - mixpanel integration
 
-  video of self intro and talk about the plan
-  mixpanel integration
-  email support for welcome signups
+  - create a div around entire splash for grey fade
+  - left align all text
+  - increase brightness of text on form
+  - blur background image, think about using something higher resolution
+

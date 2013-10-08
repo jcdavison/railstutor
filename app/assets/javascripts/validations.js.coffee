@@ -1,6 +1,7 @@
 class Payment
   constructor: () ->
     @pay()
+    @setSeats()
 
   newPmt: () ->
     @firstName = $("#firstName").val()
@@ -12,6 +13,10 @@ class Payment
     @cvc = $('#cardCvv').val()
     @pmtToken = null
     @last4 = null
+
+  setSeats: () ->
+    if window.location.href.match("thank_you")
+      $("#seats").text 3
 
   confirmPmt: () ->
     $("#last4").text @last4
@@ -43,7 +48,7 @@ class Payment
 
   resetPage: () ->
     $('#closeThankYou').click ->
-      window.location = "https://www.rubyonrailstutor.com"
+      window.location = "https://www.rubyonrailstutor.com/?thank_you=true"
     
   cardError: (errors = null) ->
     if errors
