@@ -3,7 +3,7 @@ class StudentMailer < ActionMailer::Base
   default from: JD 
   
   def new_student_notif(student)
-    @customer = student
-    mail(to: student.email, subject: "Welcome to RubyonRailsTutor.com",  reply_to: JD, bcc: JD)
+    @student = student
+    mail(to: @student.email, subject: "Welcome to RubyonRailsTutor.com",  reply_to: JD, bcc: JD)
   end
 end

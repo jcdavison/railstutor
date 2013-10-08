@@ -3,10 +3,20 @@
   %head
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}/
   %body
-    - if @customer
+    - if @student
       %h3
-        Greetings #{@customer.email},
+        Greetings #{@student.first_name.capitalize},
     %p 
-      As you know from watching the video, I made RubyonRailsTutor to help people who want to learn about full stack rails engineering.  Please find me on #{link_to "@railstutor", "http://www.twitter.com/railstutor"} or shoot me an email @ #{ mail_to "john@rubyonrailstutor.com"}.
-    %h3
-      \- John
+      Welcome to RubyonRailsTutor.com
+    %p
+      We will jump into code the night of October 21, 7pm Pacific Time.  It is imperative that you have a fully configured development environment setup that has Ruby 1.9.3, Rails 3.2.14, postgres, sublime and git.  If you don't know what those are don't worry, that is what I'm here for.
+    %p
+      Please reach out to me at soonest so we can skype and make sure you system is setup properly.
+    %p
+      I look forward to helping you progress on this amazing journey.
+    %h5
+      \- John Davison
+    %h5
+      = link_to "@railstutor", "http://www.twitter.com/railstutor"
+    %h5
+      = mail_to "john@rubyonrailstutor.com"
