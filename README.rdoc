@@ -1,6 +1,6 @@
 tasks
   - make a better video
-
+  - change the schedule ? 
   - create a div around entire splash for grey fade
   - increase brightness of text on form
 

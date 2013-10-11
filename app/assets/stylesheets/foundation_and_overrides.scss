@@ -181,13 +181,13 @@ $blockquote-cite-font-color: lighten($sublimepurple, 20%);
 
 // We use these to style the labels in different ways
 // $label-pointer: pointer;
-$label-font-size: emCalc(14px);
-// $label-font-weight: 500;
+$label-font-size: emCalc(24px);
+$label-font-weight: 1000;
 $label-font-color: white;
 // $label-bottom-margin: emCalc(3px);
 // $input-font-family: inherit;
 $input-font-color: white;
-// $input-font-size: emCalc(14px);
+$input-font-size: emCalc(14px);
 $input-bg-color: $darkgrey;
 $input-focus-bg-color: darken($darkgrey, 2%);
 $input-border-color: darken($sublimepurple, 20%);
