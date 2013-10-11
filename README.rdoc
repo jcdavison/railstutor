@@ -1,7 +1,5 @@
 tasks
-  - update welcome email
   - make a better video
-  - facebook like page, twitter/facebook like buttons
   - mixpanel integration
 
   - create a div around entire splash for grey fade
