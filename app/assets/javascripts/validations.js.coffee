@@ -24,10 +24,12 @@ class Payment
     $("#confirmLastName").text @lastName
     $("#confirmEmail").text @email
     $('#confirmPmt').foundation('reveal', 'open');
+    mixpanel.track "confirmPmt"
     @submitPmt()
 
   submitPmt: () ->
     $("#submitPmt").click =>
+      mixpanel.track "submitPmt", info: @email
       $.ajax
         type: "POST"
         url: "/main.json"
@@ -48,16 +50,19 @@ class Payment
 
   resetPage: () ->
     $('#closeThankYou').click ->
+      mixpanel.track "closeThankYou"
       window.location = "https://www.rubyonrailstutor.com/?thank_you=true"
     
   cardError: (errors = null) ->
     if errors
       $("#errors").text errors
+    mixpanel.track "errors", errors: errors
     $('#cardError').foundation('reveal', 'open');
 
 
   pay: () ->
-    $("#pay").click =>
+    $("#pay").click (event) =>
+      mixpanel.track("submit", {targetId: event.target.id})
       @newPmt()
       if @validatePresence() is true
       else
@@ -104,6 +109,8 @@ class Payment
           $(element).removeClass("error")
         if $(element).val().length is 0
           $(element).addClass("error")
+          console.log element.id
+          mixpanel.track "emptyInput", emptyId: element.id
           @presenceErrorRelease(element)
           errors += 1
     if errors is 0

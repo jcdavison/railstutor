@@ -1,9 +1,6 @@
 tasks
   - make a better video
-  - mixpanel integration
 
   - create a div around entire splash for grey fade
-  - left align all text
   - increase brightness of text on form
-  - blur background image, think about using something higher resolution
 

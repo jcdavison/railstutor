@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require mixpanel
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

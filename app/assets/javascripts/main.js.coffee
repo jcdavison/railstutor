@@ -1,14 +1,14 @@
-# $("#newCustomerEmail").focus () ->
-#   mixpanel.track({event: "Email focus"})
+window.Tracker = class Tracker
+  constructor: (@mixpanel) ->
+    @trackPageLoad()
+    @trackClick()
 
-# $("#signup").click () ->
-#   mixpanel.track({event: "signup"})
+  trackPageLoad: () ->
+    mixpanel = @mixpanel
+    $(document).ready () ->
+      mixpanel.track("pageload", {"location": window.location.pathname})
 
-# $(document).ready () ->
-#   mixpanel.track({event: "pageload"})
-
-# $("#vimeo").click () ->
-#   console.log "vim click"
-
-$("#register").click () ->
-  $("#stripe").foundation('reveal', 'open')
+  trackClick: () ->
+    mixpanel = @mixpanel
+    $(document.body, "#pay").click (event) ->
+      mixpanel.track("click", {targetId: event.target.id})
