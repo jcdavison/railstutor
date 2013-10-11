@@ -3,4 +3,5 @@ tasks
   - change the schedule ? 
   - create a div around entire splash for grey fade
   - increase brightness of text on form
+  - add a section that clearly addresses who John Davison is
 
