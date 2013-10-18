@@ -109,7 +109,6 @@ class Payment
           $(element).removeClass("error")
         if $(element).val().length is 0
           $(element).addClass("error")
-          console.log element.id
           mixpanel.track "emptyInput", emptyId: element.id
           @presenceErrorRelease(element)
           errors += 1

@@ -1,5 +1,4 @@
 $('a[href^="#"]').click (e) ->
-  console.log "click"
   e.preventDefault()
   target = @hash
   $target = $(target)
