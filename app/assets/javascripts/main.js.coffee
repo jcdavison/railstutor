@@ -11,5 +11,4 @@ window.Tracker = class Tracker
   trackClick: () ->
     mixpanel = @mixpanel
     $(document.body, "#pay").click (event) ->
-      console.log event.target.id
       mixpanel.track("click", {targetId: event.target.id})
