@@ -1,13 +1,15 @@
 .row
-  .small-10.large-12.columns.large-centered.small-centered.baby-top-margined
+  .small-10.large-9.columns.baby-top-margined
     .major
       John Davison, @railstutor
+  .large-3.columns.baby-top-margined
+    = link_to "Register!", "#register", class: "button radius medium", id: "registerbuttonprofile"
 .row
   .large-4.columns.baby-top-margined
     = image_tag "profile.jpg", class: "tutorpic baby-top-margined padded"
   .large-8.columns.baby-top-margined
     .quote.baby-top-margined.padded
-      Accomplished at teaching Ruby on Rails to beginners. 
+      Expert at teaching Ruby on Rails to beginners. 
     .quote.padded
       Graduate of Dev Boocamp, 2nd Cohort Summer of 2012.
     .quote.padded
@@ -18,12 +20,3 @@
       Over last 18 months, consulted to 5 startups and built numerous side projects.
     .quote.padded
       Prior U.S. Navy Supply Corps Officer, MBA, looking to help other Veterans make the transition to the tech economy.
-    .quote.padded
-      = link_to "Live Coding Sessions via @airpair", "http://www.youtube.com/watch?v=0Jdad0ugIIQ&feature=c4-overview&list=UUX6ZQp3RdEU_9kFNrRB-rIQ", target: "new", id: "live coding"
-
-    -# .quote.padded
-    -#   Founder of 350 person Ruby White Belts Meetup Group.
-    -# .quote.padded
-      
-    -# .quote.padded
-    -#   The next cohort starts on Monday November 4.      
