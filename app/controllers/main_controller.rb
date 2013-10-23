@@ -6,6 +6,10 @@ class MainController < ApplicationController
     end
   end
 
+  def veterans
+
+  end
+
   def create
     @amount = 50000
     @student = Student.create(email: params[:email], first_name: params[:first_name], last_name: params[:last_name], info: params[:pmt_token])

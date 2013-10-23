@@ -1,0 +1,28 @@
+.row.top-margined#mainSection
+  .large-12.columns.large-centered
+    .major.fade
+      Want to transition to Startups & Tech? 
+.row
+  .large-10.columns.large-centered.padded
+    = image_tag "veterans.jpg", class: "baby-top-margined"
+    -# %iframe{ src:"https://player.vimeo.com/video/76718824", height: "200", width: "350", frameborder: "0", style: "margin-top:1.5em;", id: "vimeo"}
+  -# .large-7.columns
+  -#   .fade
+  -#     .quote.baby-top-margined
+  -#       Want to:
+  -#     .quote 
+  -#       Create a Startup?
+  -#     .quote 
+  -#       Build cool web-software?
+  -#     .quote 
+  -#       Positively change the world?
+  -#     .quote 
+  -#       Meet awesome people and have fun?
+.row.top-margined
+  .large-9.columns.large-offset-1
+    .journey.centered.fade.micro-top
+      Learn to code in Ruby on Rails.
+  .large-2.columns.fade
+    = link_to "Register!", "#register", class: "button radius large", id: "registerbutton"
+= render 'layouts/social'
+
