@@ -1,13 +1,34 @@
 class MainController < ApplicationController
   respond_to :json, :html
+
   def index
-    if params[:cid]
-      @student = Student.find_by_id params[:cid]
-    end
+    @student = Student.new
   end
 
   def veterans
+    @student = Student.new
+  end
 
+  def apply
+    @student = Student.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], intro_video: params[:intro_video], linkedin: params[:linkedin], github: params[:github])
+
+    if @student.save
+      mail = StudentMailer.new_student_notif(@student)
+      if mail
+        mail.deliver
+      end
+      respond_with do |format|
+        format.json{
+          render json: {status: 200} 
+        } 
+      end
+    else
+      respond_with do |format|
+        format.json{
+          render json: {status: 400} 
+        } 
+      end
+    end
   end
 
   def create
@@ -31,10 +52,6 @@ class MainController < ApplicationController
 
     if @student
       @student.update_attributes(paid: true)
-      mail = StudentMailer.new_student_notif(@student)
-      if mail
-        mail.deliver
-      end
     end
     respond_with do |format|
       format.json{

@@ -1,0 +1,51 @@
+.row#apply
+  .large-11.large-centered.columns.top-margined
+    .major
+      Apply
+    .stripe.padded
+      I look for people who want to create.
+    .stripe.padded
+      Tell me about you, your motivations and passions.
+
+.row
+  .large-6.large-centered.columns.baby-top-margined
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          first name
+      .small-9.columns
+        %input{type:"text", placeholder: "first", id: "firstName", class: "validates-presence"}
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          last name
+      .small-9.columns
+        %input{type:"text", placeholder: "last", id: "lastName", class: "validates-presence"}
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          email
+      .small-9.columns
+        %input{type:"text", placeholder: "email", id: "email", class: "validates-presence"}
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          person intro video(youtube/vimeo)
+      .small-9.columns
+        %input{type:"text", placeholder: "personal intro video", id: "personalintro", class: "validates-presence"}
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          linkedin profile
+      .small-9.columns
+        %input{type:"text", placeholder: "linkedin profile", id: "linkedinprofile"}
+    .row
+      .small-3.columns
+        %label{ for: "right-label", class: "right inline"}
+          github profile
+      .small-9.columns
+        %input{type:"text", placeholder: "github profile", id: "githubprofile"}
+    .row
+      .large-5.columns.large-centered.padded.baby-top-margined
+        .button.radius#submitapplication
+          Apply!

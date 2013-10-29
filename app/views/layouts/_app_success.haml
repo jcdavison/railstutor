@@ -1,0 +1,24 @@
+.reveal-modal#appsuccess
+  .row
+    .small-9.columns.small-centered
+      .stripe.padded.majorwelcome
+      .row
+        .large-10.columns.large-centered
+          .quote
+            Thanks for applying.
+          .quote
+            Lookout for email from john@rubyonrailstutor.com with detailed instructions on next steps.
+          .quote
+            Contact me directly if you have any questions.
+      .row
+        .large-9.large-offset-3.padded
+          .stripe
+            \- John Davison
+          .stripe
+            = mail_to "john@rubyonrailstutor.com"
+          .stripe
+            = link_to "@railstutor", "http://www.twitter.com/railstutor", targer: "new"
+  %a{class: "close-reveal-modal", id: "closeAppSuccess"}
+    &#215;
+
+

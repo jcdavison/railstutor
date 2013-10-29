@@ -1,0 +1,11 @@
+.row
+  .small-10.large-12.columns.large-centered.small-centered.baby-top-margined
+    .quote.baby-top-margined
+      Startups and early stage technology companies represent a massive growth component in the Global Economy.  Transitioning from the military, a lot of the skills you have developed, while very powerful skills, will not directly translate into marketable skills.  Startups require specialized skills like software development and product design.  Learning how to code and build software will rapidly level up your ability to get hired by awesome early stage technology companies.
+    .quote.baby-top-margined
+      I moved to San Francisco in 2010 and have since been on a wild ride of corporate and independent work.  After having been through the washing machine enough to realize that corporate life did not suite me, in 2011 I released a public speaking feedback app called 'PitchKlub'.  It ignited a spark in me, I realized I loved making products that enhanced the lives of other people.  In the Spring of 2012 I quite my job and decided to jump head first in software engineering with no clear plan or roadmap.  The one thing I knew was that I had great intention to build awesome web software.  In June of 2012 I entered Dev Bootcamp and by September of 2012, had landed my first gig as a web developer.
+    .quote.baby-top-margined
+      Over the course of the last 18 months, I have consulted to a bunch of startups, built a bunch of spare time projects, taught a bunch of people how to build stuff in Ruby on Rails and generally had a great time.  'And oh by the way', I launched an awesome little app with a friend, #{link_to "crowdsound.io", "http://www.crowdsound.io/beta"}.
+    .quote.baby-top-margined
+      I know how hard the transition from active service to the civilian economy can feel.  I've walked through the valley of self doubt, I've been told by countless people that 'the fit doesn't seem right' or they 'they have other more qualified candidates'.  I know the ins and outs of how startups hire, I know what it takes to build a complete product from an idea. Most importantly, I know how to teach people extremely quickly to high quality output.
+
