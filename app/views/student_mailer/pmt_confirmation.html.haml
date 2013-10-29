@@ -1,0 +1,18 @@
+!!! 5
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}/
+  %body
+    - if @student
+      %h3
+        Hi #{@student.first_name.capitalize},
+    %p 
+      Thank you for submitting your payment.
+    %p
+      The fun has just begun, I'll be reaching out to you shortly to get things rolling.
+    %p
+      I look forward to helping you progress on this amazing journey.
+    %h3
+      \- John Davison | #{link_to "@railstutor", "http://www.twitter.com/railstutor"}
+      = mail_to "john@rubyonrailstutor.com"
+

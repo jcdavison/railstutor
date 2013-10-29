@@ -6,4 +6,9 @@ class StudentMailer < ActionMailer::Base
     @student = student
     mail(to: @student.email, subject: "Welcome to RubyonRailsTutor.com",  reply_to: JD, bcc: JD)
   end
+
+  def pmt_confirmation(student)
+    @student = student
+    mail(to: @student.email, subject: "RubyonRailstutor.com PMT Confirmation",  reply_to: JD, bcc: JD)
+  end
 end

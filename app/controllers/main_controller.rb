@@ -9,6 +9,9 @@ class MainController < ApplicationController
     @student = Student.new
   end
 
+  def register
+  end
+
   def apply
     @student = Student.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], intro_video: params[:intro_video], linkedin: params[:linkedin], github: params[:github])
 
@@ -52,6 +55,10 @@ class MainController < ApplicationController
 
     if @student
       @student.update_attributes(paid: true)
+      mail = StudentMailer.pmt_confirmation(@student)
+      if mail
+        mail.deliver
+      end
     end
     respond_with do |format|
       format.json{
