@@ -1,1 +1,1 @@
-Rails.configuration.pricepoint = 75000
+Rails.configuration.pricepoint = 50000
