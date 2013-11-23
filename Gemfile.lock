@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:sonkei/highlightjs-rails.git
+  remote: https://github.com/sonkei/highlightjs-rails.git
   revision: 2062e7683390f9e8ee6edc1d71a243c80cb78a95
   specs:
     highlightjs-rails (0.1.0)
