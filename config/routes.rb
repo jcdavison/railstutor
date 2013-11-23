@@ -7,5 +7,7 @@ Railstutor::Application.routes.draw do
   ["rubybasics", "models", "mvcroundtrip", "rubyobjects", "overview" ].each do |lesson|
     get "curriculum/#{lesson}", to: "curriculum##{lesson}"
   end
+  get "curriculum/", to: "curriculum#overview"
+  get "curriculum", to: "curriculum#overview"
   root :to  => "main#index"
 end
