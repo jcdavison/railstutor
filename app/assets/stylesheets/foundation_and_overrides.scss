@@ -7,9 +7,9 @@
 
 // We use these to control various global styles
 $body-bg: white;
-$body-font-color: $lightblue;
+$body-font-color: $grey;
 // $body-font-family: 'PlayBall', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$body-font-family: "Roboto-Thin", sans-serif;
+$body-font-family: "Oxygen", sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -20,7 +20,7 @@ $body-font-family: "Roboto-Thin", sans-serif;
 // $text-direction: ltr;
 
 // We use these as default colors throughout
-$primary-color: $sublimepurple;
+$primary-color: $lightblue;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
@@ -77,18 +77,18 @@ $primary-color: $sublimepurple;
 //
 
 // We use these to control header font styles
-$header-font-family: 'OpenSans', sans-serif;
+$header-font-family: 'Oxygen', sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
-// $header-font-color: red;
+$header-font-color: $lightblue;
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
 // $header-bottom-margin: .5em;
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
-// $h1-font-size: emCalc(44px);
-// $h2-font-size: emCalc(37px);
+$h1-font-size: emCalc(44px);
+$h2-font-size: emCalc(37px);
 // $h3-font-size: emCalc(27px);
 // $h4-font-size: emCalc(23px);
 // $h5-font-size: emCalc(18px);
@@ -122,7 +122,7 @@ $header-font-family: 'OpenSans', sans-serif;
 
 // We use these to style anchors
 // $anchor-text-decoration: none;
-$anchor-font-color: $primary-color;
+// $anchor-font-color: $primary-color;
 // $anchor-font-color-hover: darken($primary-color, 5%);
 
 // We use these to style the <hr> element
@@ -139,11 +139,11 @@ $anchor-font-color: $primary-color;
 // $definition-list-margin-bottom: emCalc(12px);
 
 // We use these to style blockquotes
-$blockquote-font-color: $lightblue;
+// $blockquote-font-color: $lightblue;
 // $blockquote-padding: emCalc(9px) emCalc(20px) 0 emCalc(19px);
-$blockquote-border: 1px solid lighten($sublimepurple, 20%);
+// $blockquote-border: 1px solid lighten($sublimepurple, 20%);
 // $blockquote-cite-font-size: emCalc(13px);
-$blockquote-cite-font-color: lighten($sublimepurple, 20%);
+// $blockquote-cite-font-color: lighten($sublimepurple, 20%);
 // $blockquote-cite-link-color: $blockquote-cite-font-color;
 
 // Acronym styles
@@ -210,12 +210,12 @@ $input-border-color: darken($sublimepurple, 20%);
 // $legend-padding: 0 emCalc(3px);
 
 // We use these to style the prefix and postfix input elements
-$input-prefix-bg: darken($sublimepurple, 5%);
-$input-prefix-border-color: darken($sublimepurple, 20%);
-$input-prefix-border-size: 1px;
+// $input-prefix-bg: darken($sublimepurple, 5%);
+// $input-prefix-border-color: darken($sublimepurple, 20%);
+// $input-prefix-border-size: 1px;
 // $input-prefix-border-type: solid;
 // $input-prefix-overflow: hidden;
-$input-prefix-font-color: black;
+// $input-prefix-font-color: black;
 // $input-prefix-font-color-alt: #fff;
 
 // We use these to style the error states for inputs and labels
@@ -243,7 +243,7 @@ $input-prefix-font-color: black;
 // $button-font-med: emCalc(16px);
 // $button-font-tny: emCalc(11px);
 // $button-font-sml: emCalc(13px);
-// $button-font-lrg: emCalc(20px);
+$button-font-lrg: emCalc(48px);
 // $button-font-weight: bold;
 // $button-font-align: center;
 

@@ -1,11 +1,31 @@
 @import "variables";
 
 body, #confirmPmt, #cardError, #thankYou, #appsuccess, #apperror {
-  background-color: $darkgrey;
+  background-color: white;
+}
+
+pre {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .inline {
   display: inline;
+}
+
+.outline {
+  // border: 2px solid grey;
+}
+
+.railstutorintro {
+  position: relative;
+  top: 30px;
+  left: 55px;
+}
+
+.screenshot {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .roboto {
@@ -27,6 +47,15 @@ body, #confirmPmt, #cardError, #thankYou, #appsuccess, #apperror {
 
 .centered {
   text-align: center;
+}
+
+//  LAPTOP DIV
+
+.laptop {
+  background-image: url("mbp2.png");
+  height: 360px;
+  width: 546;
+  background-repeat:no-repeat;
 }
 // NAVIGATION
 
@@ -61,6 +90,14 @@ ul.nav > li {
 
 .curriculum {
   font-size: 1.5em;
+}
+
+.content img {
+  margin: 10px 0 10px 0;
+}
+
+iframe {
+  margin: 10px 0 10px 0;
 }
 
 .micro-top {
@@ -120,16 +157,33 @@ ul.nav > li {
   line-height: 1.2em;
 }
 
-.title {
-  font-family: 'Montserrat';
-  font-size: 5.5em;
-  color: $lightblue;
-  margin: .3em 0 0 0;
-  line-height: 1em;
-}
+// .title {
+//   font-family: 'Montserrat';
+//   font-size: 5.5em;
+//   color: $lightblue;
+//   margin: .3em 0 0 0;
+//   line-height: 1em;
+// }
 
 .top-margined {
-  margin-top: 3em;
+  margin-top: 70px;
+}
+
+.fundamental {
+  width: 350px;
+}
+
+.fundamental li {
+  font-size: 18px;
+}
+
+.medfont {
+  font-size: 32px;
+  padding: 15px 25px 15px 25px !important;
+}
+
+.billboard {
+  margin-top: 75px;
 }
 
 .baby-top-margined {

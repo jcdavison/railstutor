@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require highlight.pack
 //= require foundation
 //= require_tree .
 
+hljs.initHighlightingOnLoad();
 $(function(){ $(document).foundation(); });

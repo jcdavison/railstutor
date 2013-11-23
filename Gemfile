@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem "gon", "~> 4.1.1"
 gem 'stripe-rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'markdown-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -17,6 +18,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem "zurb-foundation", "~> 4.3.2"
+  gem 'highlightjs-rails', git: 'git@github.com:sonkei/highlightjs-rails.git'
 end
 
 group :development do

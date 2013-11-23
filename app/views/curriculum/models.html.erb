@@ -1,0 +1,162 @@
+<div class="row">
+  <div class=" large-12 large-centered columns">
+    <h1>
+      RubyonRailstutor.com - Rails Models
+    </h1>
+  </div>
+</div>
+<div class="row">
+  <div class=" large-12 large-centered columns panel">
+    <h2>
+      Strategic Learning Goals
+    </h2>
+
+    <div class="row">
+      <div class=" large-11 large-centered columns">
+        <ol>
+          <li>  Understand what it means to instantiate an object that inherits from an active record object.</li>
+          <li>  Understand how CREATE, READ, UPDATE, DESTROY [ CRUD ] an instance of a data model.</li>
+          <li>  Begin to understand how Active Record govern SQL relatioships between models.</li>
+        </ol>
+      </div>
+    </div>
+
+    <h2>
+      Reference Material
+    </h2>
+    <div class="row">
+      <div class=" large-11 large-centered columns">
+        <ul>
+          <li><%= link_to "Active Record Associations", "http://guides.rubyonrails.org/association_basics.html" %> </li>
+          <li><%= link_to "Active Recrod Migrations", "http://guides.rubyonrails.org/migrations.html" %></li>
+          <li><%= link_to "Active Record Query Docs", "http://guides.rubyonrails.org/active_record_querying.html" %></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>
+      Tactical Learning Goals
+    </h2>
+
+    <div class="row">
+      <div class=" large-11 large-centered columns content">
+
+        <ol>
+          <li>CREATE a data model.</li>
+          <pre><code>
+            rails generate model message content:string
+            bundle exec rake db:migrate
+          </code></pre>
+          <blockquote>
+            verify that the applications recognizes the Message object with attribute 'content'
+          </blockquote>
+          <%= image_tag "https://dl.dropboxusercontent.com/u/12834645/railstutor/lessons/Screen%20Shot%202013-11-19%20at%2010.10.36%20AM.png" %>
+          <li>Understand how CREATE, READ, UPDATE, DESTROY [ CRUD ] an instance of a data model.</li>
+          <blockquote>
+             CREATE a new instance of a Message object
+          </blockquote>
+          <pre><code>
+            message = Message.new(content: "hello fun people of the world")
+            message.save
+          </code></pre>
+          <blockquote>
+            look for things like BEGIN, COMMIT, TRUE to know that you've saved correctly
+          </blockquote>
+          <%= image_tag "https://dl.dropboxusercontent.com/u/12834645/railstutor/lessons/Screen%20Shot%202013-11-19%20at%2010.17.37%20AM.png" %>
+          <blockquote>
+            READ also can mean 'retrieve and look at', records can be retrieved in many ways, by record id, by content, by position in the database...
+          </blockquote>
+          <pre><code>
+            message = Message.find(messageid)
+            message = Message.last
+            message = Message.all.last
+            message = Message.all[-1]
+            message = Message.find_by_content("hello fun people of the world")
+          </code></pre>
+          <%= image_tag "https://dl.dropboxusercontent.com/u/12834645/railstutor/lessons/Screen%20Shot%202013-11-19%20at%2010.25.00%20AM.png" %>
+          <blockquote>
+            In order to UPDATE a model, you must first retrieve the model, then invoke a function on it that updates a value or attribute.
+          </blockquote>
+          <pre><code>
+            message = Message.last
+            message.content = "now the message has really changed"
+            message.save
+          </code></pre>
+          <%= image_tag "https://dl.dropboxusercontent.com/u/12834645/railstutor/lessons/Screen%20Shot%202013-11-19%20at%2010.02.11%20PM.png" %>
+          <blockquote>
+            DESTROY a model, first retrieve the model, then invoke a function on it that destroys the entire object.
+          </blockquote>
+          <pre><code>
+            message = Message.last
+            message.destroy
+          </code></pre>
+          <%= image_tag "https://dl.dropboxusercontent.com/u/12834645/railstutor/lessons/Screen%20Shot%202013-11-19%20at%2010.09.02%20PM.png" %>
+
+          <li>Understand how to add unique functions to a model and call them.</li>
+          <blockquote>
+            Consider the below model definition, app/models/message.rb
+          </blockquote>
+          <pre><code>
+            class Message < ActiveRecord::Base
+              def shorten!
+                self.content = self.content[0..119]
+              end
+
+              def remove_profanity
+                ['bad word', 'another bad word','and another' ].each do |profanity|
+                  self.content.gsub!("#{profanity}", "")
+                end
+              end
+
+              def add_smiles
+                return if content.empty?
+                self.content << ":)"
+              end
+            end
+          </code></pre>
+          <blockquote>
+          .shorten!, .remove_profanity and .add_smiles are all programmer defined functions that can be called on an instance of a Message.this is how programmers give data models custom logic, anything you can think about, you can program here.
+          </blockquote>
+          <%= image_tag "https://dl.dropboxusercontent.com/u/12834645/railstutor/lessons/Screen%20Shot%202013-11-19%20at%2010.33.35%20PM.png" %>
+
+          <li> Understand how to create one to many relationship between different models, notice that we are creating another migration to add the person_id attribute to messages.  Active record doesn't immediately create that for us but when the attributes are present, and model definitions made correctly, Active Record will give us access to the linked objects. </li> 
+            <pre><code>
+              rails g model person name:string
+              rails g migration AddPersonIdToMessage
+              bundle exec rake db:migrate
+            </code></pre>
+            <blockquote>
+              Active Record provides many useful methods and tools to create relationships between models. Consider the below model definitions, not that in Person 'has_many' :messages and Message 'belongs_to' :person
+            </blockquote>
+            <pre><code>
+              class Person < ActiveRecord::Base
+                has_many :messages
+              end
+              class Message < ActiveRecord::Base
+                belongs_to :person
+                def shorten!
+                  self.content = self.content[0..119]
+                end
+
+                def remove_profanity
+                  ['bad word', 'another bad word','and another' ].each do |profanity|
+                    self.content.gsub!("#{profanity}", "")
+                  end
+                end
+
+                def add_smiles
+                  return if content.empty?
+                  self.content << ":)"
+                end
+              end
+            </code></pre>
+            <blockquote>
+              Active record now give us access to the relationship created between Person and Message.
+            </blockquote>
+            <%= image_tag "https://dl.dropboxusercontent.com/u/12834645/railstutor/lessons/Screen%20Shot%202013-11-19%20at%2010.57.19%20PM.png" %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+

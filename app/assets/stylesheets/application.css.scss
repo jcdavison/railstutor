@@ -12,6 +12,7 @@
  *= require_tree .
  *= require foundation_and_overrides
  */
+@import 'highlight/solarized_light';
 
 @font-face{
   font-family: "Roboto";
@@ -20,6 +21,12 @@
   font-style: normal;
 }
 
+@font-face{
+  font-family: "Oxygen";
+  src: url('Oxygen-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 @font-face{
   font-family: "Roboto-Thin";
   src: url('Roboto-Thin.ttf') format('truetype');
