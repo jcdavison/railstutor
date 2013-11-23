@@ -183,14 +183,14 @@ $h2-font-size: emCalc(37px);
 // $label-pointer: pointer;
 $label-font-size: emCalc(24px);
 $label-font-weight: 1000;
-$label-font-color: white;
+// $label-font-color: white;
 // $label-bottom-margin: emCalc(3px);
 // $input-font-family: inherit;
-$input-font-color: white;
-$input-font-size: emCalc(14px);
-$input-bg-color: $darkgrey;
-$input-focus-bg-color: darken($darkgrey, 2%);
-$input-border-color: darken($sublimepurple, 20%);
+$input-font-color: $lightblue;
+// $input-font-size: emCalc(14px);
+// $input-bg-color: $darkgrey;
+// $input-focus-bg-color: darken($darkgrey, 2%);
+// $input-border-color: darken($sublimepurple, 20%);
 // $input-focus-border-color: darken(#fff, 40%);
 // $input-border-style: solid;
 // $input-border-width: 1px;
@@ -243,7 +243,7 @@ $input-border-color: darken($sublimepurple, 20%);
 // $button-font-med: emCalc(16px);
 // $button-font-tny: emCalc(11px);
 // $button-font-sml: emCalc(13px);
-$button-font-lrg: emCalc(48px);
+// $button-font-lrg: emCalc(48px);
 // $button-font-weight: bold;
 // $button-font-align: center;
 
@@ -763,7 +763,7 @@ $reveal-overlay-bg: rgba($darkgrey, .45);
 
 // We use these to control the style of the modal itself.
 // $reveal-modal-bg: #fff;
-// $reveal-position-top: 50px;
+// $reveal-position-top: 10px;
 // $reveal-default-width: 80%;
 // $reveal-modal-padding: emCalc(20px);
 // $reveal-box-shadow: 0 0 10px rgba(#000,.4);

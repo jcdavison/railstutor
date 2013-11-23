@@ -1,0 +1,33 @@
+.reveal-modal.medium#join
+  .row
+    .small-11.columns.small-centered
+      .row
+        .large-4.columns.outline
+          = image_tag "profile.jpg"
+          = image_tag "profile3.png"
+          = image_tag "profile2.png"
+        .large-8.columns.outline
+          %h1
+            Join the Community
+          %dl
+            %dt Get access to custom learning content & screencasts.
+            %dt Receive invites to free pair-programming sessions.
+          -# %form
+          %fieldset
+            %legend
+              your contact info
+            .row
+              .large-12.columns
+                %input{type: "text", placeholder: "first name", id: "firstName"}
+            .row
+              .large-12.columns
+                %input{type: "text", placeholder: "last name", id: "lastName"}
+            .row
+              .large-12.columns
+                %input{type: "text", placeholder: "email", id: "email"}
+            .row
+              .large-5.large-centered.columns.centered
+                %button{id: "jointoday", class: "medium radius success"}
+                  Join Today!
+  %a{class: "close-reveal-modal"}
+    &#215;

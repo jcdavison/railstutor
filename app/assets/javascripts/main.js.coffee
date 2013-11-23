@@ -1,7 +1,13 @@
 window.Tracker = class Tracker
   constructor: (@mixpanel) ->
-    @trackPageLoad()
-    @trackClick()
+    # @trackPageLoad()
+    # @trackClick()
+    # @showModal()
+
+  showModal: () ->
+    $(document).ready () ->
+      $("#join").foundation("reveal", "open")
+
 
   trackPageLoad: () ->
     mixpanel = @mixpanel

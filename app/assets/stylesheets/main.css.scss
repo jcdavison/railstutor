@@ -9,8 +9,32 @@ pre {
   margin-bottom: 1em;
 }
 
+.blue {
+  color: $lightblue;
+}
+
+::-webkit-input-placeholder {
+   color: $lightblue;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $lightblue;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $lightblue;  
+}
+
+:-ms-input-placeholder {  
+   color: $lightblue;  
+}
+
 .inline {
   display: inline;
+}
+
+.reveal-modal.medium {
+  top: 65px !important;
 }
 
 .outline {

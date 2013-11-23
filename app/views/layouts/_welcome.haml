@@ -1,0 +1,19 @@
+.reveal-modal.medium#welcome
+  .row
+    .small-11.columns.small-centered
+      .row
+        .large-4.columns.outline
+          = image_tag "profile.jpg"
+          = image_tag "profile3.png"
+          = image_tag "profile2.png"
+        .large-8.columns.outline
+          %h1#confirmationMessage
+          %dl
+            %dt Welcome to the community!
+            %dt Look for an email sent to
+            %dt#confirmationEmail
+          %h2 Have a great day and I'll be in contact.
+          %h2 john@rubyonrailstutor.com
+  %a{class: "close-reveal-modal"}
+    &#215;
+

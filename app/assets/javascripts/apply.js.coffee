@@ -1,19 +1,22 @@
 class Application
   constructor: () ->
     @submit()
+    @learnMore()
+
+  learnMore: () ->
+    $("#learnmore").click ->
+      $("#join").foundation("reveal", "open")
 
   getInfo: () ->
     @firstName = $("#firstName").val()
     @lastName = $("#lastName").val()
     @email = $("#email").val()
-    @personalVideo = $('#personalintro').val()
-    @linkedin = $("#linkedinprofile").val()
-    @github = $("#githubprofile").val()
 
   submit: () ->
-    $("#submitapplication").click (event) =>
+    $("#jointoday").click (event) =>
       @getInfo()
       if @validatePresence() is true
+        console.log "this is it"
         $.ajax
           type: "POST"
           url: "/apply.json"
@@ -21,14 +24,14 @@ class Application
             first_name: @firstName
             last_name: @lastName
             email: @email
-            intro_video: @personalVideo
-            linkedin: @linkedin
-            github: @github
           success: (response) =>
             if response.status is 200
-              $('#appsuccess').foundation('reveal', 'open');
-            if response.status is 400
-              $('#apperror').foundation('reveal', 'open');
+              $("#confirmationEmail").text response.email
+              $("#confirmationMessage").text response.message
+              $('#jointoday').foundation('reveal', 'close');
+              $('#welcome').foundation('reveal', 'open');
+            # if response.status is 400
+            #   $('#apperror').foundation('reveal', 'open');
 
   validatePresence: () ->
     select = $(".validates-presence")
@@ -54,4 +57,5 @@ class Application
       $(element).blur ->
         if $(element).val().length isnt 0 && $(element).hasClass("error")
           $(@).removeClass("error")
+
 application = new Application
