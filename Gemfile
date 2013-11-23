@@ -18,7 +18,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem "zurb-foundation", "~> 4.3.2"
-  gem 'highlightjs-rails', git: 'git@github.com:sonkei/highlightjs-rails.git'
+  gem 'highlightjs-rails', git: 'https://github.com/sonkei/highlightjs-rails.git'
 end
 
 group :development do
