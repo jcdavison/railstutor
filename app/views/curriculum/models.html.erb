@@ -114,7 +114,7 @@
           </blockquote>
           <%= image_tag "https://dl.dropboxusercontent.com/u/12834645/railstutor/lessons/Screen%20Shot%202013-11-19%20at%2010.33.35%20PM.png" %>
 
-          <li> Understand how to create one to many relationship between different models, notice that we are creating another migration to add the person_id attribute to messages.  Active record doesn't immediately create that for us but when the attributes are present, and model definitions made correctly, Active Record will give us access to the linked objects. </li> 
+          <li> Understand how to create one to many relationship between different models, notice that we are creating another migration to add the person_id attribute to messages.  Active record doesn't immediately create that for us but when the attributes are present, and model definitions made correctly, Active Record will give us access to the linked objects. </li>
             <pre><code>
               rails g model person name:string
               rails g migration AddPersonIdToMessage
@@ -158,7 +158,7 @@
                 belongs_to :person
                 validates_presence_of :content
                 def shorten!
-                  self.content = self.content[0..119]
+                  self.content = self.content[0..19]
                 end
 
                 def remove_profanity
