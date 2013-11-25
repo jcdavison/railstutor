@@ -2,9 +2,9 @@ Railstutor::Application.routes.draw do
 
   post 'main', to: 'main#create'
   post 'apply', to: 'main#apply'
-  get 'veterans', to: 'main#veterans'
+  get 'veterans', to: redirect("/")
   get 'register', to: 'main#register'
-  ["rubybasics", "models", "mvcroundtrip", "rubyobjects", "overview" ].each do |lesson|
+  ["views", "controllers", "rubybasics", "models", "mvcroundtrip", "rubyobjects", "overview" ].each do |lesson|
     get "curriculum/#{lesson}", to: "curriculum##{lesson}"
   end
   get "curriculum/", to: "curriculum#overview"

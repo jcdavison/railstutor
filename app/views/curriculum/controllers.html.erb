@@ -1,0 +1,132 @@
+<div class="row">
+  <div class=" large-12 large-centered columns">
+    <h1>
+      RubyonRailstutor.com - 
+    </h1>
+  </div>
+</div>
+<div class="row">
+  <div class=" large-12 large-centered columns panel">
+    <h2>
+      Strategic Learning Goals
+    </h2>
+
+    <div class="row">
+      <div class=" large-11 large-centered columns">
+        <ol>
+          <li>Understand how controllers actions are ruby method calls.</li>
+          <li>Understand how the routing file links to a controller and a controller to a view file.</li>
+        </ol>
+      </div>
+    </div>
+
+    <h2>
+      Reference Material
+    </h2>
+    <div class="row">
+      <div class=" large-11 large-centered columns">
+        <ul>
+          <li><%= link_to "Rails Routing", "http://guides.rubyonrails.org/routing.html" %> </li>
+          <li><%= link_to "Rails Controller", "http://guides.rubyonrails.org/action_controller_overview.html" %> </li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>
+      Tactical Learning Goals
+    </h2>
+    
+    <div class="row">
+      <div class=" large-11 large-centered columns content">
+        <ol>
+          <li>CREATE a controller.</li>
+          <pre><code>
+            rails g controller messages index show new create edit update destroy
+          </code></pre>
+          <blockquote>
+            will create something that looks like the below in app/controllers/messages_controller.rb
+          </blockquote>
+          <pre><code>
+            class MessagesController < ApplicationController
+              def index
+              end
+
+              def show
+              end
+
+              def new
+              end
+
+              def create
+              end
+
+              def edit
+              end
+
+              def update
+              end
+
+              def destroy
+              end
+            end
+          </code></pre>
+          <blockquote>
+            make sure routes.rb looks like the below.
+          </blockquote>
+          <%= image_tag "content/routes.png" %>
+          <blockquote>
+            and that 'bundle exec rake routes' outputs something like the below
+          </blockquote>
+          <%= image_tag "content/rakeroutes.png" %>
+          <blockquote>
+            understand that as the each endpoint on the applications is hit, ie, GET "/messages", the corresponding controller and action indicated in the routes output by 'messages#index' where 'messages' indicates the controller and 'index' the action.
+          </blockquote>
+          <blockquote>
+            as each controller action gets accessed, the ruby code inside the action executes.
+          </blockquote>
+          <pre><code>
+
+            class MessagesController < ApplicationController
+              def index
+                @messages = Message.all
+              end
+
+              def show
+                @message = Message.find_by_id(params[:id])
+              end
+
+              def new
+                @message = Message.new
+              end
+
+              def create
+                @message = Message.create( content: params[:message][:content])
+                redirect_to root_path
+              end
+
+              def edit
+                @message = Message.find_by_id(params[:id])
+              end
+
+              def update
+                @message = Message.find_by_id(params[:id])
+                @message.content = params[:message][:content]
+                @message.save
+                redirect_to root_path
+              end
+
+              def destroy
+                @message = Message.find_by_id(params[:id])
+                @message.destroy
+                redirect_to root_path
+              end
+            end
+          </code></pre>
+        </ol>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

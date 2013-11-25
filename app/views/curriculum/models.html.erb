@@ -17,6 +17,7 @@
           <li>  Understand what it means to instantiate an object that inherits from an active record object.</li>
           <li>  Understand how CREATE, READ, UPDATE, DESTROY [ CRUD ] an instance of a data model.</li>
           <li>  Begin to understand how Active Record govern SQL relatioships between models.</li>
+          <li>  Begin to understand validations, filters and capabilities of rails Active Record models.</li>
         </ol>
       </div>
     </div>
@@ -154,6 +155,34 @@
               Active record now give us access to the relationship created between Person and Message.
             </blockquote>
             <%= image_tag "https://dl.dropboxusercontent.com/u/12834645/railstutor/lessons/Screen%20Shot%202013-11-19%20at%2010.57.19%20PM.png" %>
+            <li>Validations provide powerful application level support.</li>
+            <blockquote>
+              consider the addition of 'validates_presence_of :content' to the model definition for Message
+            </blockquote>
+            <pre><code>
+              class Message < ActiveRecord::Base
+                belongs_to :person
+                validates_presence_of :content
+                def shorten!
+                  self.content = self.content[0..119]
+                end
+
+                def remove_profanity
+                  ['bad word', 'another bad word','and another' ].each do |profanity|
+                    self.content.gsub!("#{profanity}", "")
+                  end
+                end
+
+                def add_smiles
+                  return if content.empty?
+                  self.content << ":)"
+                end
+              end
+            </code></pre>
+            <blockquote>
+              the model will now check to ensure that 'content' is not empty.
+            </blockquote>
+            <%= image_tag "content/validates_presence.png" %>
         </ol>
       </div>
     </div>
