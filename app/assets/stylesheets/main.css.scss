@@ -4,6 +4,10 @@ body, #confirmPmt, #cardError, #thankYou, #appsuccess, #apperror {
   background-color: white;
 }
 
+code {
+  overflow: auto;
+}
+
 pre {
   margin-top: 1em;
   margin-bottom: 1em;
