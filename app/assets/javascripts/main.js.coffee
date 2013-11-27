@@ -1,13 +1,11 @@
 window.Tracker = class Tracker
   constructor: (@mixpanel) ->
-    # @trackPageLoad()
-    # @trackClick()
-    # @showModal()
+    @trackPageLoad()
+    @trackClick()
 
   showModal: () ->
     $(document).ready () ->
       $("#join").foundation("reveal", "open")
-
 
   trackPageLoad: () ->
     mixpanel = @mixpanel
@@ -16,5 +14,5 @@ window.Tracker = class Tracker
 
   trackClick: () ->
     mixpanel = @mixpanel
-    $(document.body, "#pay").click (event) ->
+    $("button, input, #learnmore").click (event) ->
       mixpanel.track("click", {targetId: event.target.id})

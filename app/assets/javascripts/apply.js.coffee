@@ -13,7 +13,7 @@ class Application
     @email = $("#email").val()
 
   submit: () ->
-    $("#jointoday").click (event) =>
+    $("#submit").click (event) =>
       @getInfo()
       if @validatePresence() is true
         console.log "this is it"
