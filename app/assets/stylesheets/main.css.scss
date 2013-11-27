@@ -17,6 +17,10 @@ pre {
   color: $lightblue;
 }
 
+input.error {
+  margin-bottom: 1em;
+}
+
 ::-webkit-input-placeholder {
    color: $lightblue;
 }

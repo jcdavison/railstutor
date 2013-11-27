@@ -8,26 +8,26 @@
           = image_tag "profile2.png"
         .large-8.columns.outline
           %h1
-            Join the Community
+            Join the community.
           %dl
-            %dt Get access to custom learning content & screencasts.
-            %dt Receive invites to free pair-programming sessions.
+            %dt Receive invites to FREE pair-programming sessions.
+            %dt Get access to tutorials & screencasts.
           -# %form
           %fieldset
             %legend
-              your contact info
+              contact info
             .row
               .large-12.columns
-                %input{type: "text", placeholder: "first name", id: "firstName"}
+                %input{type: "text", placeholder: "first name", id: "firstName", class: "validates-presence"}
             .row
               .large-12.columns
-                %input{type: "text", placeholder: "last name", id: "lastName"}
+                %input{type: "text", placeholder: "last name", id: "lastName", class: "validates-presence"}
             .row
               .large-12.columns
-                %input{type: "text", placeholder: "email", id: "email"}
+                %input{type: "text", placeholder: "email", id: "email", class: "validates-presence"}
             .row
               .large-5.large-centered.columns.centered
                 %button{id: "jointoday", class: "medium radius success"}
-                  Join Today!
+                  Start Now!
   %a{class: "close-reveal-modal"}
     &#215;

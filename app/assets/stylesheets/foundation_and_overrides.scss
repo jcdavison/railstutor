@@ -219,7 +219,7 @@ $input-font-color: $lightblue;
 // $input-prefix-font-color-alt: #fff;
 
 // We use these to style the error states for inputs and labels
-// $input-error-message-padding: emCalc(6px) emCalc(4px);
+$input-error-message-padding: emCalc(10px);
 // $input-error-message-top: -($form-spacing) - emCalc(5px);
 // $input-error-message-font-size: emCalc(12px);
 // $input-error-message-font-weight: bold;
