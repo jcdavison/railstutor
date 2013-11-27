@@ -23,12 +23,12 @@
   = stylesheet_link_tag "application"
   = javascript_include_tag "vendor/custom.modernizr"
   = render 'layouts/mixpanel'
-  -# = render 'layouts/olark'
+  = render 'layouts/olark'
   = csrf_meta_tag
 
 %body
   = yield
-  -# = render "layouts/googleanalytics"
+  = render "layouts/googleanalytics"
   = render "layouts/facebook"
   = render "layouts/twitter"
   -# = render :partial => 'stripe/js'
