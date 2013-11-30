@@ -17,6 +17,10 @@ pre {
   color: $lightblue;
 }
 
+.hidden {
+  display: none;
+}
+
 input.error {
   margin-bottom: 1em;
 }
@@ -135,6 +139,7 @@ iframe {
 .micro-top {
   margin-top: .3em;
 }
+
 .journey {
   font-family: "Montserrat";
   color: $sublimepurple;

@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+setNav =  () ->
+  $(document).ready ->
+    location = window.location.pathname
+    if location is "/curriculum"
+      $("#overviewCrumb").addClass "current"
+    if location isnt "/curriculum" && location.match "/curriculum"
+      $("#curriculumCrumb").text document.title
+      $("#curriculumCrumb").removeClass "hidden"
+setNav()

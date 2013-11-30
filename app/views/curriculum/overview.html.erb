@@ -1,9 +1,15 @@
-<div class="row">
-  <div class=" large-11 large-centered columns">
-    <h1>
-      Curriculum & Content
-    </h1>
+<% content_for :head do %>
+  <title>Curriculum Overview</title>
+<% end %>
+
+<%=  render "layouts/breadcrumbs" %>
+
+<div class="row" id="main">
+  <div class="large-11 large-centered columns">
     <div class="panel">
+      <h1>
+        Curriculum & Content
+      </h1>
       <h2 class="subheader">
         <%= link_to "Ruby Basics", "/curriculum/rubybasics" %>
       </h2>

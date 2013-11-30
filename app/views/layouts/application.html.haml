@@ -7,7 +7,10 @@
 /[if (gt IE 9)|!(IE)] <!--> <html lang=\"en\">
 
 %head
-  %title Ruby on Rails Tutor, learn the fundamentals of Rails in a small group from a personable tutor.
+  - if content_for? :head
+    = content_for :head
+  - else
+    %title Master Ruby on Rails fundamentals, Grasp concepts in fun small groups, Learn from an expert tutor.  
   %meta{ :charset => "utf-8" }
   %meta{ :property => "og:image", content: "https://www.rubyonrailstutor.com/assets/railstutorsplash.png" }
   %meta{ :property => "og:url", content: "https://www.rubyonrailstutor.com" }
@@ -32,6 +35,8 @@
   = render "layouts/facebook"
   = render "layouts/twitter"
   -# = render :partial => 'stripe/js'
+  - unless request.fullpath == "/"
+    = render "layouts/disqus"
   = javascript_include_tag "application"
   :javascript
     tracker = new Tracker(mixpanel)
