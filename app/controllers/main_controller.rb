@@ -17,8 +17,6 @@ class MainController < ApplicationController
     message = "Greetings #{params[:first_name].capitalize},"
     if @student.save
       mail = StudentMailer.new_student_notif(@student)
-      lead = StudentMailer.new_lead(@student)
-      lead.deliver
       if mail
         mail.deliver
       end
