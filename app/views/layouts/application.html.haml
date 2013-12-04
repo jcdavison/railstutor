@@ -34,9 +34,9 @@
   = render "layouts/googleanalytics"
   = render "layouts/facebook"
   = render "layouts/twitter"
-  -# = render :partial => 'stripe/js'
-  - unless request.fullpath == "/"
-    = render "layouts/disqus"
+  = render :partial => 'stripe/js'
+  -# - unless request.fullpath == "/"
+  -#   = render "layouts/disqus"
   = javascript_include_tag "application"
   :javascript
     tracker = new Tracker(mixpanel)

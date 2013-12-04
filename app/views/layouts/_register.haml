@@ -1,57 +1,65 @@
-.row#register.fade
-  .large-11.large-centered.columns.top-margined
-    .major
-      $#{display_price(Rails.configuration.pricepoint)} to Register
-.row.fade
-  .large-6.large-centered.columns.baby-top-margined
-    .row
-      .small-3.columns
-        %label{ for: "right-label", class: "right inline"}
-          first name
-      .small-9.columns
-        %input{type:"text", placeholder: "first", id: "firstName", class: "validates-presence"}
-    .row
-      .small-3.columns
-        %label{ for: "right-label", class: "right inline"}
-          last name
-      .small-9.columns
-        %input{type:"text", placeholder: "last", id: "lastName", class: "validates-presence"}
-    .row
-      .small-3.columns
-        %label{ for: "right-label", class: "right inline"}
-          email
-      .small-9.columns
-        %input{type:"text", placeholder: "email", id: "email", class: "validates-presence"}
-    .row
-      .small-3.columns
-        %label{ for: "right-label", class: "right inline"}
-          credit card #
-      .small-9.columns
-        %input{type:"password", placeholder: "credit card #", id: "cardNumber", class: "validates-presence"}
-    .row
-      .small-2.columns.small-offset-1
-        %label{ for: "right-label", class: "right inline"}
-          exp
-      .small-1.columns
-        %label{ for: "right-label", class: "right inline"}
-          MM
-      .small-2.columns
-        %input{type:"text", placeholder: "01", id: "expMonth", class: "validates-presence"}
-      .small-1.columns
-        %label{ for: "right-label", class: "right inline"}
-          YY
-      .small-2.columns
-        %input{type:"text", placeholder: "15", id: "expYear", class: "validates-presence"}
-      .small-1.columns
-        %label{ for: "right-label", class: "right inline"}
-          cvc
-      .small-2.columns
-        %input{type:"text", placeholder: "123", id: "cardCvv", class: "validates-presence"}
-    .row
-      .small-10.small-centered.columns
-        %label
-          Secure Credit Card Processing Powered by Stripe and SSL.
-    .row
-      .large-4.columns.large-centered.padded.baby-top-margined
-        .button.radius#pay
-          Register
+.row
+  .large-12.large-centered.columns.baby-top-margined.centered
+    = image_tag "cohort1smiling.png"
+.row
+  .large-5.columns.baby-top-margined
+    %ul.pricing-table
+      %li.title
+        %h2
+          The Ruby White Belt
+      %li.bullet-item 10 Sequenced Social Pair Programmed lessons (20 hrs).
+      %li.bullet-item Life-long coaching and motivation on your journey towards making cool things.
+      %li.bullet-item Access to Custom content, screencasts and cutting edge pair-programming tools.
+      %li.title
+        %h2
+          $#{display_price(Rails.configuration.pricepoint)}
+  .large-7.columns.baby-top-margined
+    .centered
+      %h2 Register
+    .form
+      .fieldset
+        .row
+          .large-10.large-centered.columns.baby-top-margined
+            .row
+              .large-10.large-centered.columns.baby-top-margined
+                %input{type:"text", placeholder: "First Name", id: "firstName", class: "validates-presence"}
+            .row
+              .large-10.large-centered.columns.baby-top-margined
+                %input{type:"text", placeholder: "last", id: "lastName", class: "validates-presence"}
+            .row
+              .large-10.large-centered.columns.baby-top-margined
+                %input{type:"text", placeholder: "email", id: "email", class: "validates-presence"}
+            .row
+              .large-10.large-centered.columns.baby-top-margined
+                %input{type:"password", placeholder: "credit card #", id: "cardNumber", class: "validates-presence"}
+
+            .row
+              .large-10.large-centered.columns.baby-top-margined
+                .row
+                  .small-2.columns
+                    %label{ for: "right-label", class: "inline"}
+                      exp
+                  .small-1.columns
+                    %label{ for: "right-label", class: "inline"}
+                      MM
+                  .small-2.columns
+                    %input{type:"text", id: "expMonth", class: "validates-presence"}
+                  .small-1.columns
+                    %label{ for: "right-label", class: "inline"}
+                      YY
+                  .small-2.columns
+                    %input{type:"text", id: "expYear", class: "validates-presence"}
+                  .small-1.columns
+                    %label{ for: "right-label", class: "inline"}
+                      cvc
+                  .small-3.columns
+                    %input{type:"text", id: "cardCvv", class: "validates-presence"}
+            .row
+              .small-10.small-centered.columns
+                %label
+                  %h5
+                    Secure Transaction Powered by SSl & Stripe.
+            .row
+              .large-4.columns.large-centered.padded.baby-top-margined
+                .button.radius#pay
+                  Register

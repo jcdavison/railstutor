@@ -122,4 +122,4 @@ class Payment
       $(element).blur ->
         if $(element).val().length isnt 0 && $(element).hasClass("error")
           $(@).removeClass("error")
-# payment = new Payment
+payment = new Payment
