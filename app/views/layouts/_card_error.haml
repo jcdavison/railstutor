@@ -1,15 +1,17 @@
-.reveal-modal#cardError
+.reveal-modal.medium#cardError
   .row
     .small-7.columns.small-centered.padded
-      .quote
-        There was a problem with your card
+      %h4
+        Sorry, There was a problem with your card
   .row
     .small-7.columns.small-centered.padded
       .quote#errors
   .row
     .small-7.columns.small-centered.padded
-      .quote
-        Please Try Again or email #{ mail_to "john@rubyonrailstutor.com"}
+      %h5
+        Please Try Again 
+      %h5
+        or email #{ mail_to "john@rubyonrailstutor.com"}
       %label.padded
         Secure Credit Card Processing Powered by Stripe and SSL.
   %a{class: "close-reveal-modal"}

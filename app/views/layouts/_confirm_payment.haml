@@ -1,8 +1,11 @@
-.reveal-modal#confirmPmt
+.reveal-modal.medium#confirmPmt
   .row
     .small-7.columns.small-centered
-      .stripe.padded
-        Confirmation
+      %h5
+        Credit Card ending in 
+        %span#last4
+          *
+        is about to be charged $#{display_price(Rails.configuration.pricepoint)}.
       .row
         .large-3.columns.padded
           %label
@@ -18,12 +21,6 @@
           %label
             email
         .large-9#confirmEmail.columns.padded
-      .row
-        .small-10.columns.small-centered.padded
-          Credit Card ending in 
-          %span#last4
-            *
-          is about to be charged $#{display_price(Rails.configuration.pricepoint)}.
       .row
         .large-4.large-centered.columns
           .button#submitPmt.padded
