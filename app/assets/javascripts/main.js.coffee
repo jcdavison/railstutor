@@ -14,5 +14,5 @@ window.Tracker = class Tracker
 
   trackClick: () ->
     mixpanel = @mixpanel
-    $("button, input, #learnmore").click (event) ->
+    $("button, input, .learnmore").click (event) ->
       mixpanel.track("click", {targetId: event.target.id})

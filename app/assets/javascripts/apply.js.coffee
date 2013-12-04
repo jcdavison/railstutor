@@ -4,7 +4,7 @@ class Application
     @learnMore()
 
   learnMore: () ->
-    $("#learnmore").click ->
+    $(".learnmore").click ->
       $("#join").foundation("reveal", "open")
 
   getInfo: () ->
