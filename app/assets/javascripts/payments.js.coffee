@@ -85,7 +85,9 @@ class Payment
         @cardError(response.errors)
         return false
       unless response.errors
+        console.log "response.errors", response.errors
         @pmtToken = response.id
+        console.log "getpmt token last4", response.card.last4
         @last4 = "'#{response.card.last4}'"
         @confirmPmt()
     )
