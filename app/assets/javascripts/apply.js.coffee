@@ -16,7 +16,7 @@ class Application
     $("#submit").click (event) =>
       @getInfo()
       if @validatePresence() is true
-        console.log "this is it"
+        _saq.push(['track', 'Goal']);
         $.ajax
           type: "POST"
           url: "/apply.json"
