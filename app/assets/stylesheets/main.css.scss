@@ -8,6 +8,12 @@ code {
   overflow: auto;
 }
 
+.mobile-centered {
+  @media (max-width: $grid-float-breakpoint) {
+    text-align: center;
+  }
+}
+
 pre {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -53,11 +59,11 @@ input.error {
   // border: 2px solid grey;
 }
 
-.railstutorintro {
-  position: relative;
-  top: 30px;
-  left: 55px;
-}
+// .railstutorintro {
+//   position: relative;
+//   top: 30px;
+//   left: 55px;
+// }
 
 .screenshot {
   margin-top: 1em;
@@ -80,15 +86,39 @@ input.error {
 
 //  LAPTOP DIV
 
-.laptop {
-  background-image: url("mbp2.png");
-  height: 360px;
-  width: 546;
-  background-repeat:no-repeat;
-}
+// .laptop {
+//   background-image: url("mbp2.png");
+//   height: 360px;
+//   width: 546;
+//   background-repeat:no-repeat;
+// }
 // NAVIGATION
 
 
+
+.laptop {
+  background-image: url("mbp2.png");
+  height: 360px;
+  // width: 546px;
+  background-repeat: no-repeat;
+  @media (max-width: $grid-float-breakpoint) {
+    width: 300px;
+    background-size: 100%;
+    height: 200px;
+  }
+}
+
+.railstutorintro {
+  position: relative;
+  top: 30px;
+  left: 55px;
+  @media (max-width: $grid-float-breakpoint) {
+    top: 10px;
+    left: 30px;
+    width: 241px;
+    height: 161px;
+  }
+}
 
 // FORMS
 
@@ -142,16 +172,33 @@ iframe {
   line-height: 1.2em;
 }
 
-.top-margined {
-  margin-top: 70px;
+.mobile-top-margin {
+  @media (max-width: $grid-float-breakpoint) {
+    margin-top: 10px !important;
+  }
 }
 
+.top-margined {
+  margin-top: 70px;
+  @media (max-width: $grid-float-breakpoint) {
+    margin-top: 10px;
+  }
+}
+
+
 .fundamental {
-  width: 390px;
+  width: 330px;
+  @media (max-width: $grid-float-breakpoint) {
+    width: 280px;
+  }
 }
 
 .fundamental li {
   font-size: 18px;
+  @media (max-width: $grid-float-breakpoint) {
+    font-size: 14px;
+    text-align: center;
+  }
 }
 
 .medfont {
@@ -161,6 +208,9 @@ iframe {
 
 .billboard {
   margin-top: 75px;
+  @media (max-width: $grid-float-breakpoint) {
+    margin-top: 10px;
+  }
 }
 
 .baby-top-margined {

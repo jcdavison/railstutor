@@ -1,0 +1,20 @@
+.row
+  .large-12.columns.outline
+    .row
+      .large-7.columns.top-margined.outline
+        .laptop
+          = render "layouts/iframe"
+      .large-5.columns.top-margined.outline
+        .billboard.mobile-centered
+          %h1
+            Want to Code?
+          %ul.fundamental.vcard
+            %li Master Ruby on Rails Fundamentals.
+            %li Grasp concepts in fun small groups.
+            %li Learn from an expert tutor.
+          %button.large.radius.medfront.learnmore#learnmore
+            Learn More
+      .hide-for-small
+        .row
+          .large-10.large-centered.columns.outline
+            = render "layouts/social"
