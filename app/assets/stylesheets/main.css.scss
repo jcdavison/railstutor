@@ -120,6 +120,15 @@ input.error {
   }
 }
 
+.mobile-intro-vid {
+  @media (max-width: $grid-float-breakpoint) {
+    top: 10px !important;
+    left: 5px !important;
+    width: 241px;
+    height: 161px;
+  }
+}
+
 // FORMS
 
 .texty {
