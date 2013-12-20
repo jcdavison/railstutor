@@ -4,23 +4,30 @@ class Student < ActiveRecord::Base
   before_create :valid_email?
 
   def full_name
+    return unless first_name && last_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
   def add_to_mailing_list
     return unless self.email
-
     email = self.email
-    first = self.first_name
-    last = self.last_name
-    full_name = self.full_name
-
-    response = RestClient.post("https://api:#{RAILSTUTOR_MAILGUN}@api.mailgun.net/v2/lists/hackers@rubyonrailstutor.com/members",
-                  :subscribed => true,
-                  :address => 'email@email.com',
-                  :name => 'full_name',
-                  :description  => 'hacker',
-                  :upsert  =>  'yes')
+    first = self.first_name || "Hacker"
+    last = self.last_name || "Hacker"
+    full_name = self.full_name || "Hacker"
+    vars = { first: first, last: last }
+    vars = vars.to_json
+    begin
+      response = RestClient.post("https://api:#{RAILSTUTOR_MAILGUN}@api.mailgun.net/v2/lists/hackers@rubyonrailstutor.com/members",
+                    :subscribed => true,
+                    :address => email,
+                    :name => full_name,
+                    :description  => 'hacker',
+                    :upsert  =>  'yes',
+                    :vars  => vars)
+    rescue => e
+      return false
+    end
+    return true
   end
 
   def valid_email?
