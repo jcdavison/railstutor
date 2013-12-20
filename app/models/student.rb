@@ -43,8 +43,7 @@ class Student < ActiveRecord::Base
   def self.remove_invalid
     Student.all.each do |student|
       if student.valid_email? == false
-        # student.destroy
-        p student.email
+        student.destroy
       end
     end
   end
