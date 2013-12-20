@@ -70,6 +70,7 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    excon (0.31.0)
     execjs (2.0.2)
     fssm (0.2.10)
     gon (4.1.1)
@@ -86,12 +87,16 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mailchimp-api (2.0.4)
+      excon (>= 0.16.0)
+      json (>= 1.7.7)
     markdown-rails (0.2.1)
       rails
       rdiscount (>= 1.6.8, < 2.0)
     method_source (0.8.2)
     mime-types (1.25)
     multi_json (1.8.0)
+    multimap (1.1.2)
     pg (0.14.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -189,13 +194,16 @@ DEPENDENCIES
   haml (~> 3.1.7)
   highlightjs-rails!
   jquery-rails
+  mailchimp-api (~> 2.0.4)
   markdown-rails
+  multimap (~> 1.1.2)
   pg (~> 0.14.0)
   pry
   pry-debugger
   pry-rails
   quiet_assets (~> 1.0.1)
   rails (= 3.2.14)
+  rest-client (~> 1.6.7)
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   sendgrid-rails (~> 2.0)

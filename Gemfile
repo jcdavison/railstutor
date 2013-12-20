@@ -11,6 +11,9 @@ gem "gon", "~> 4.1.1"
 gem 'stripe-rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'markdown-rails'
+gem "mailchimp-api", "~> 2.0.4"
+gem "rest-client", "~> 1.6.7"
+gem "multimap", "~> 1.1.2"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

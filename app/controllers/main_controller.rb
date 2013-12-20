@@ -15,7 +15,7 @@ class MainController < ApplicationController
   def apply
     @student = Student.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], intro_video: params[:intro_video], linkedin: params[:linkedin], github: params[:github])
     message = "Greetings #{params[:first_name].capitalize},"
-    if @student.save
+    if ( @student.save && Student.validate_email(params[:email]) ) == true
       mail = StudentMailer.new_student_notif(@student)
       if mail
         mail.deliver

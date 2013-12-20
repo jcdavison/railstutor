@@ -14,9 +14,9 @@ class Application
 
   submit: () ->
     $("#submit").click (event) =>
+      console.log "hey"
       @getInfo()
       if @validatePresence() is true
-        _saq.push(['track', 'Goal']);
         $.ajax
           type: "POST"
           url: "/apply.json"
@@ -30,8 +30,8 @@ class Application
               $("#confirmationMessage").text response.message
               $('#jointoday').foundation('reveal', 'close');
               $('#welcome').foundation('reveal', 'open');
-            # if response.status is 400
-            #   $('#apperror').foundation('reveal', 'open');
+            if response.status is 400
+              $('#emailerror').foundation('reveal', 'open');
 
   validatePresence: () ->
     select = $(".validates-presence")
