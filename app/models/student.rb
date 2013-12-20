@@ -1,6 +1,8 @@
 class Student < ActiveRecord::Base
   attr_accessible :email, :first_name, :info, :last_name, :paid, :phone, :linkedin, :github, :intro_video
 
+  before_create :valid_email?
+
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
@@ -21,15 +23,29 @@ class Student < ActiveRecord::Base
                   :upsert  =>  'yes')
   end
 
-  def self.validate_email email
-    email = CGI::escape email
+  def valid_email?
+    return false unless self.email
+    email = CGI::escape self.email
     address = "address=#{email}"
-    response = RestClient.get "https://api:#{RAILSTUTOR_PUBLIC_MAILGUN}@api.mailgun.net/v2/address/validate?#{address}"
+    begin
+      response = RestClient.get "https://api:#{RAILSTUTOR_PUBLIC_MAILGUN}@api.mailgun.net/v2/address/validate?#{address}"
+    rescue => e
+      return e.inspect
+    end
     response = JSON.parse(response)
-    if response["is_valid"]  == true
+    if response["is_valid"] == true
       return true
     else
       return false
+    end
+  end
+
+  def self.remove_invalid_users
+    Student.all.each do |student|
+      if student.valid_email? == false
+        # student.destroy
+        p student.email
+      end
     end
   end
 

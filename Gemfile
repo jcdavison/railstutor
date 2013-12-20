@@ -25,7 +25,7 @@ group :assets do
 end
 
 group :development do
-  gem 'pry-rails'
+  # gem 'pry-rails'
   gem 'zeus', require: nil
   gem 'pry'
   gem 'pry-debugger'
