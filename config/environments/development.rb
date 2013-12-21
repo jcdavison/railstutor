@@ -14,12 +14,12 @@ Railstutor::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
+    address:              'smtp.mailgun.org',
     port:                 587,
     domain:               'rubyonrailstutor.com',
-    user_name:            'john@rubyonrailstutor.com',
-    password:             ENV['RAILSTUTOR_GMAIL'],
-    authentication:       'plain',
+    user_name:            'postmaster@rubyonrailstutor.com',
+    password:             ENV['RAILSTUTOR_MAILGUN_POSTMASTER'],
+    authentication:       'STARTTLS',
     enable_starttls_auto: true  }
 
   # Log error messages when you accidentally call methods on nil.
