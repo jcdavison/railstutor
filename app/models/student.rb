@@ -1,11 +1,19 @@
 class Student < ActiveRecord::Base
   attr_accessible :email, :first_name, :info, :last_name, :paid, :phone, :linkedin, :github, :intro_video
 
-  before_create :valid_email?
+  before_create :validate_and_subscribe
 
   def full_name
     return unless first_name && last_name
     "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
+  def validate_and_subscribe
+    if self.valid_email?
+      self.add_to_mailing_list
+    else
+      return false
+    end
   end
 
   def add_to_mailing_list
@@ -17,7 +25,7 @@ class Student < ActiveRecord::Base
     vars = { first: first, last: last }
     vars = vars.to_json
     begin
-      response = RestClient.post("https://api:#{RAILSTUTOR_MAILGUN}@api.mailgun.net/v2/lists/hackers@rubyonrailstutor.com/members",
+      response = RestClient.post("https://api:#{RAILSTUTOR_MAILGUN}@api.mailgun.net/v2/lists/#{Rails.configuration.mailing_list}@rubyonrailstutor.com/members",
                     :subscribed => true,
                     :address => email,
                     :name => full_name,

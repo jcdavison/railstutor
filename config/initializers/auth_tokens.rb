@@ -8,3 +8,9 @@ end
 
 RAILSTUTOR_MAILGUN = ENV['RAILSTUTOR_MAILGUN']
 RAILSTUTOR_PUBLIC_MAILGUN = ENV['RAILSTUTOR_PUBLIC_MAILGUN']
+
+if Rails.env.production? 
+  Rails.configuration.mailing_list = "hackers"
+else
+  Rails.configuration.mailing_list = "test"
+end
