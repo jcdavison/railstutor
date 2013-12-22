@@ -8,6 +8,10 @@ class Student < ActiveRecord::Base
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
+  def self.populate_list
+    Student.all.each {|student| student.add_to_mailing_list }
+  end
+
   def validate_and_subscribe
     if self.valid_email?
       self.add_to_mailing_list
