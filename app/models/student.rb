@@ -19,8 +19,8 @@ class Student < ActiveRecord::Base
   def add_to_mailing_list
     return unless self.email
     email = self.email
-    first = self.first_name || "Hacker"
-    last = self.last_name || "Hacker"
+    first = self.first_name.capitalize || "Hacker"
+    last = self.last_name.capitalize || "Hacker"
     full_name = self.full_name || "Hacker"
     vars = { first: first, last: last }
     vars = vars.to_json
