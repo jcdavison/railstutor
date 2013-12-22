@@ -7,7 +7,7 @@
     .centered
       = image_tag "cohort1smiling.png"
     %h3.subheader.centered
-      = link_to "Curriculum", curriculum_path, class: "button small radius"
+      = link_to "Curriculum", curriculum_path, class: "button small radius", id: "curriculum"
 
     %h3.top-margined.mobile-centered.grey.centered
       %span.number
@@ -23,9 +23,9 @@
               %li John Davison, MBA, PMP, DBC
               %li Fed all natural Honey Badger.
               %li Self transformed hacker.
-              %li #{link_to "johncdavison.com", "http://johncdavison.com", target: "new"}
-              %li #{link_to "github.com/jcdavison", "http://github.com/jcdavison", target: "new"}
-              %li #{link_to "linkedin.com/jcdavison", "http://www.linkedin.com/in/jcdavison", target: "new"}
+              %li #{link_to "johncdavison.com", "http://www.johncdavison.com", target: "new", id: "johncdavison.com"}
+              %li #{link_to "github.com/jcdavison", "http://github.com/jcdavison", target: "new", id: "github/jcdavison"}
+              %li #{link_to "linkedin.com/jcdavison", "http://www.linkedin.com/in/jcdavison", target: "new", id: "linkedin/jcdavison"}
     %h3.top-margined.mobile-centered.grey.centered
       %span.number
         = fa_icon "rocket"
@@ -41,4 +41,4 @@
       .large-6.columns.outline.large-centered.top-margined.mobile-centered.centered
         %button.large.radius.learnmore#footerlearnmore.padded
           Learn More
-        = link_to "Register", '/register', class: "button radius large padded"
+        = link_to "Register", '/register', class: "button radius large padded", id: "register"
