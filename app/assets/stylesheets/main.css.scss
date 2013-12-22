@@ -23,6 +23,10 @@ pre {
   color: $lightblue;
 }
 
+.grey {
+  color: $darkgrey; 
+}
+
 .hidden {
   display: none;
 }
@@ -291,6 +295,18 @@ iframe {
     width: 241px;
     height: 161px;
   }
+}
+
+.number {
+  display: inline-block;
+  border-radius: 2000px;
+  background-color: $lightblue;
+  color: white;
+  font-size: 22px;
+  padding: 7px;
+  text-align: center;
+  height: 44px;
+  width: 44px;
 }
 
 // thankoumodal

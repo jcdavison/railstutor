@@ -72,6 +72,8 @@ GEM
     eventmachine (1.0.3)
     excon (0.31.0)
     execjs (2.0.2)
+    font-awesome-rails (4.0.3.0)
+      railties (>= 3.2, < 5.0)
     fssm (0.2.10)
     gon (4.1.1)
       actionpack (>= 2.3.0)
@@ -188,6 +190,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
+  font-awesome-rails
   gon (~> 4.1.1)
   haml (~> 3.1.7)
   highlightjs-rails!

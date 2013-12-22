@@ -14,6 +14,7 @@ gem 'markdown-rails'
 gem "mailchimp-api", "~> 2.0.4"
 gem "rest-client", "~> 1.6.7"
 gem "multimap", "~> 1.1.2"
+gem "font-awesome-rails"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
