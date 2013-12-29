@@ -1,0 +1,47 @@
+.form
+  .fieldset
+    .row
+      .large-10.large-centered.columns.baby-top-margined
+        .row
+          .large-10.large-centered.columns.baby-top-margined
+            %input{type:"text", placeholder: "First Name", id: "firstName", class: "validates-presence"}
+        .row
+          .large-10.large-centered.columns.baby-top-margined
+            %input{type:"text", placeholder: "last", id: "lastName", class: "validates-presence"}
+        .row
+          .large-10.large-centered.columns.baby-top-margined
+            %input{type:"text", placeholder: "email", id: "email", class: "validates-presence"}
+        .row
+          .large-10.large-centered.columns.baby-top-margined
+            %input{type:"password", placeholder: "credit card #", id: "cardNumber", class: "validates-presence"}
+
+        .row
+          .large-10.large-centered.columns.baby-top-margined
+            .row
+              .small-2.columns
+                %label{ for: "right-label", class: "inline"}
+                  exp
+              .small-1.columns
+                %label{ for: "right-label", class: "inline"}
+                  MM
+              .small-2.columns
+                %input{type:"text", id: "expMonth", class: "validates-presence"}
+              .small-1.columns
+                %label{ for: "right-label", class: "inline"}
+                  YY
+              .small-2.columns
+                %input{type:"text", id: "expYear", class: "validates-presence"}
+              .small-1.columns
+                %label{ for: "right-label", class: "inline"}
+                  cvc
+              .small-3.columns
+                %input{type:"text", id: "cardCvv", class: "validates-presence"}
+        .row
+          .small-10.small-centered.columns
+            %label
+              %h5
+                Secure Transaction Powered by SSl & Stripe.
+        .row
+          .large-4.columns.large-centered.padded.baby-top-margined.mobile-centered
+            .button.radius#pay
+              Pay

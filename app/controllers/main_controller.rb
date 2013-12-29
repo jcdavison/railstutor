@@ -35,7 +35,7 @@ class MainController < ApplicationController
   end
 
   def create
-    @amount = Rails.configuration.pricepoint
+    @amount = params[:payment].to_i 
     @student = Student.create(email: params[:email], first_name: params[:first_name], last_name: params[:last_name], info: params[:pmt_token])
 
     begin
@@ -62,7 +62,7 @@ class MainController < ApplicationController
     end
     respond_with do |format|
       format.json{
-        render json: {message: "Congratulation #{@student.first_name}, transaction in amount of $#{Rails.configuration.pricepoint/100} complete, Welcome to RubyonRailsTutor.com, look for email from john@rubyonrailstutor.com"} 
+        render json: {message: "Congratulation #{@student.first_name}, transaction in amount of $#{@amount/100} complete, Welcome to RubyonRailsTutor.com, look for email from john@rubyonrailstutor.com", payment: @amount/100} 
       } 
     end
   end

@@ -1,5 +1,7 @@
 class Payment
   constructor: () ->
+    @payment = null
+    @freelance = false
     @pay()
     @setSeats()
 
@@ -23,17 +25,21 @@ class Payment
     $("#confirmFirstName").text @firstName
     $("#confirmLastName").text @lastName
     $("#confirmEmail").text @email
+    $("#confirmPmtVal").text @payment
     $('#confirmPmt').foundation('reveal', 'open');
     mixpanel.track "confirmPmt"
     @submitPmt()
 
   submitPmt: () ->
     $("#submitPmt").click =>
+      payment = @payment * 100
       mixpanel.track "submitPmt", info: @email
       $.ajax
         type: "POST"
         url: "/main.json"
         data: 
+          freelance: @freelance
+          payment: payment
           first_name: @firstName
           last_name: @lastName
           email: @email
@@ -41,6 +47,7 @@ class Payment
         success: (response) =>
           if response.message
             $('#welcome').text "Welcome #{@firstName} !"
+            $('#pmtReceivedVal').text response.payment 
             $('#confirmPmt').foundation('reveal', 'close');
             $("#thankYou").foundation('reveal', 'open')
             @resetPage()
@@ -59,9 +66,16 @@ class Payment
     mixpanel.track "errors", errors: errors
     $('#cardError').foundation('reveal', 'open');
 
+  isFreelance: () ->
+    if window.location.pathname is "/freelance"
+      @freelance = true
+      @payment = $("#freelancepayment").val()
+    if window.location.pathname isnt "/freelance"
+      @payment = 1500
 
   pay: () ->
     $("#pay").click (event) =>
+      @isFreelance()
       mixpanel.track("submit", {targetId: event.target.id})
       @newPmt()
       if @validatePresence() is true

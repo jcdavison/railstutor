@@ -5,7 +5,8 @@
         Credit Card ending in 
         %span#last4
           *
-        is about to be charged $#{display_price(Rails.configuration.pricepoint)}.
+        is about to be charged $
+        %span#confirmPmtVal
       .row
         .large-3.columns.padded
           %label
