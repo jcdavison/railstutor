@@ -14,9 +14,10 @@ class Application
 
   submit: () ->
     $("#submit").click (event) =>
-      console.log "hey"
       @getInfo()
       if @validatePresence() is true
+        $("#submit").toggle "invisible"
+        $("#submitspinner").toggle "invisible"
         $.ajax
           type: "POST"
           url: "/apply.json"
@@ -28,6 +29,8 @@ class Application
             if response.status is 200
               $("#confirmationEmail").text response.email
               $("#confirmationMessage").text response.message
+              $("#submit").toggle "invisible"
+              $("#submitspinner").toggle "invisible"
               $('#jointoday').foundation('reveal', 'close');
               $('#welcome').foundation('reveal', 'open');
             if response.status is 400
