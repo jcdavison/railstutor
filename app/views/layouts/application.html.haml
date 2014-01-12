@@ -37,6 +37,7 @@
   = render :partial => 'stripe/js'
   - unless request.fullpath == "/"
     = render "layouts/disqus"
+  = render "layouts/footer"
   = javascript_include_tag "application"
   :javascript
     tracker = new Tracker(mixpanel)
