@@ -1,9 +1,8 @@
 .row
   .large-10.columns.large-centered
     .footer.centered
-      site design, layout, content and code created by #{link_to "john davison","https://plus.google.com/u/1/117148151318226933951/?rel=author" , target: "new", rel: "author"}
-    .footer.centered
-      home | 
+      = link_to "home", root_path
+      \| 
       = link_to "currciculum:", curriculum_path
       = link_to "ruby basics", curriculum_rubybasics_path 
       \| 
@@ -16,3 +15,5 @@
       = link_to "rails controllers", curriculum_controllers_path
       \| 
       = link_to "rails views", curriculum_views_path
+    .footer.centered
+      site design, layout, content and code created by #{link_to "John Davison","https://plus.google.com/u/0/+JohnDavison-railstutor/?rel=author" , target: "new", rel: "author"} | #{ link_to "johncdavison.com", "http://www.johncdavison.com", target: "new"}
