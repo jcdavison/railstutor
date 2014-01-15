@@ -26,6 +26,7 @@ class Application
             last_name: @lastName
             email: @email
           success: (response) =>
+            console.log response
             if response.status is 200
               $("#confirmationEmail").text response.email
               $("#confirmationMessage").text response.message

@@ -61,6 +61,7 @@ GEM
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
+    database_cleaner (1.2.0)
     debugger (1.6.2)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -70,8 +71,12 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    excon (0.31.0)
     execjs (2.0.2)
+    factory_girl (4.2.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.2.1)
+      factory_girl (~> 4.2.0)
+      railties (>= 3.0.0)
     font-awesome-rails (4.0.3.0)
       railties (>= 3.2, < 5.0)
     fssm (0.2.10)
@@ -89,14 +94,14 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mailchimp-api (2.0.4)
-      excon (>= 0.16.0)
-      json (>= 1.7.7)
     markdown-rails (0.2.1)
       rails
       rdiscount (>= 1.6.8, < 2.0)
+    metaclass (0.0.2)
     method_source (0.8.2)
     mime-types (1.25)
+    mocha (1.0.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.0)
     multimap (1.1.2)
     pg (0.14.1)
@@ -154,9 +159,6 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    sendgrid-rails (2.0.3)
-      actionmailer (>= 3.0.0)
-      activesupport (>= 2.1.0)
     slop (3.4.6)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -190,13 +192,15 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
+  database_cleaner (~> 1.2.0)
+  factory_girl_rails
   font-awesome-rails
   gon (~> 4.1.1)
   haml (~> 3.1.7)
   highlightjs-rails!
   jquery-rails
-  mailchimp-api (~> 2.0.4)
   markdown-rails
+  mocha (~> 1.0.0)
   multimap (~> 1.1.2)
   pg (~> 0.14.0)
   pry
@@ -206,7 +210,6 @@ DEPENDENCIES
   rest-client (~> 1.6.7)
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
-  sendgrid-rails (~> 2.0)
   stripe!
   stripe-rails
   thin (~> 1.5.0)

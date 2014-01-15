@@ -13,13 +13,8 @@ class MainController < ApplicationController
   end
 
   def apply
-    @student = Student.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], intro_video: params[:intro_video], linkedin: params[:linkedin], github: params[:github])
     message = "Greetings #{params[:first_name].capitalize},"
-    if  @student.save
-      mail = StudentMailer.new_student_notif(@student)
-      if mail
-        mail.deliver
-      end
+    if Student.in_process! params
       respond_with do |format|
         format.json{
           render json: {status: 200, email: params[:email], message: message } 

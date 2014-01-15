@@ -1,7 +1,26 @@
 class Student < ActiveRecord::Base
   attr_accessible :email, :first_name, :info, :last_name, :paid, :phone, :linkedin, :github, :intro_video
 
-  before_create :validate_and_subscribe
+  validates_presence_of :first_name, :last_name, :email
+  validates_uniqueness_of :email
+  before_create :validate_email_and_subscribe
+
+  def self.in_process! params
+    student = self.find_by_email params[:email]
+    if student
+      student.update_attributes email: params[:email], first_name: params[:first_name], last_name: params[:last_name]
+      return false
+    else
+      student = self.create( first_name: params[:first_name], 
+        last_name: params[:last_name], email: params[:email])
+      #mailer calls not tested
+      mail = StudentMailer.new_student_notif(student)
+      if mail
+        mail.deliver
+      end
+      return true
+    end
+  end
 
   def full_name
     return unless first_name && last_name
@@ -12,7 +31,7 @@ class Student < ActiveRecord::Base
     Student.all.each {|student| student.add_to_mailing_list }
   end
 
-  def validate_and_subscribe
+  def validate_email_and_subscribe
     if self.valid_email?
       self.add_to_mailing_list
     else
@@ -43,6 +62,7 @@ class Student < ActiveRecord::Base
   end
 
   def valid_email?
+    #stubbing this method to return true in specs
     return false unless self.email
     email = CGI::escape self.email
     address = "address=#{email}"
@@ -59,7 +79,7 @@ class Student < ActiveRecord::Base
     end
   end
 
-  def self.remove_invalid
+  def self.remove_invalid!
     Student.all.each do |student|
       if student.valid_email? == false
         student.destroy
