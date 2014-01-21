@@ -22,7 +22,7 @@ class Student < ActiveRecord::Base
       return "applied"
     elsif params[:applied] == "false" && ! student
       student = self.create( first_name: params[:first_name], 
-        last_name: params[:last_name], email: params[:email])
+        last_name: params[:last_name], email: params[:email], applied: false)
       return "created"
     else params[:applied] == "false" && student
       return "rejected"
@@ -30,11 +30,12 @@ class Student < ActiveRecord::Base
   end
 
   def self.route_welcome_message student
-    unless student.applied? 
-      mail = StudentMailer.new_community_welcome student
-      mail.deliver
-    else
+    binding.pry
+    if student.applied == true
       mail = StudentMailer.new_application_notif student
+      mail.deliver
+    elsif student.applied == false
+      mail = StudentMailer.new_community_welcome student
       mail.deliver
     end
   end
