@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require highlight.pack
 //= require foundation
+//= require underscore
+//= require validation
 //= require_tree .
 
 hljs.initHighlightingOnLoad();

@@ -9,12 +9,12 @@ class MainController < ApplicationController
     @student = Student.new
   end
 
-  def register
+  def apply
   end
 
-  def apply
+  def join
     message = "Greetings #{params[:first_name].capitalize},"
-    if Student.in_process! params
+    unless Student.in_process(params) == "rejected"
       respond_with do |format|
         format.json{
           render json: {status: 200, email: params[:email], message: message } 
@@ -63,7 +63,6 @@ class MainController < ApplicationController
   end
 
   def show
-
   end
 
 end

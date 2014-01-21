@@ -35,20 +35,25 @@ describe Student do
     end
   end
 
-  context "#in_process!" do
+  context "#in_process" do
     before do
       @params = { first_name: @student.first_name,
         last_name: @student.last_name, 
-        email: @student.email }
+        email: @student.email, applied: "false" }
     end
 
-    it "returns true on new student save" do
-      Student.in_process!(@params).should be_true
+    it "returns created on new student save" do
+      Student.in_process(@params).should == "created"
     end
 
-    it "returns false if Student alreadys exists" do
+    it "returns rejected if Student alreadys exists" do
       @student.save.should be_true
-      Student.in_process!(@params).should be_false
+      Student.in_process(@params).should == "rejected"
+    end
+
+    it "returns applied if Student exists and is applying" do
+      @params[:applied] = "true"
+      Student.in_process(@params).should == "applied"
     end
   end
 

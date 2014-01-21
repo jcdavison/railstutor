@@ -1,30 +1,56 @@
 class Student < ActiveRecord::Base
-  attr_accessible :email, :first_name, :info, :last_name, :paid, :phone, :linkedin, :github, :intro_video
+  attr_accessible :email, :first_name, :info, :last_name, :paid, :phone, :linkedin, :github, :intro_video, :applied
 
   validates_presence_of :first_name, :last_name, :email
   validates_uniqueness_of :email
   before_create :validate_email_and_subscribe
 
-  def self.in_process! params
+  def self.in_process params
     student = self.find_by_email params[:email]
-    if student
-      student.update_attributes email: params[:email], first_name: params[:first_name], last_name: params[:last_name]
-      return false
-    else
+    if params[:applied] == "true" && ! student
+      student = self.create( first_name: params[:first_name], 
+        last_name: params[:last_name], email: params[:email], 
+        linkedin: params[:linkedin], github: params[:github],
+        intro_video: params[:video], applied: true)
+      return "applied"
+    elsif params[:applied] == "true" && student
+      student.update_attributes( first_name: params[:first_name], 
+        last_name: params[:last_name], email: params[:email],
+        linkedin: params[:linkedin], github: params[:github],
+        intro_video: params[:video], applied: true)
+        Student.route_welcome_message student
+      return "applied"
+    elsif params[:applied] == "false" && ! student
       student = self.create( first_name: params[:first_name], 
         last_name: params[:last_name], email: params[:email])
-      #mailer calls not tested
-      mail = StudentMailer.new_student_notif(student)
-      if mail
-        mail.deliver
-      end
-      return true
+      return "created"
+    else params[:applied] == "false" && student
+      return "rejected"
+    end
+  end
+
+  def self.route_welcome_message student
+    unless student.applied? 
+      mail = StudentMailer.new_community_welcome student
+      mail.deliver
+    else
+      mail = StudentMailer.new_application_notif student
+      mail.deliver
     end
   end
 
   def full_name
     return unless first_name && last_name
     "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
+  def update_extended! params
+    self.update_attributes linkedin: params[:linkedin], github: params[:github], intro_video: params[:video], phone: params[:phone]
+    self.applied!
+  end
+
+  def applied!
+    self.update_attributes applied: true
   end
 
   def self.populate_list
@@ -34,6 +60,7 @@ class Student < ActiveRecord::Base
   def validate_email_and_subscribe
     if self.valid_email?
       self.add_to_mailing_list
+      Student.route_welcome_message self
     else
       return false
     end

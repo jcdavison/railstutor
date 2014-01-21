@@ -1,0 +1,64 @@
+.row
+  .large-4.columns.centered.baby-top-margined
+    = image_tag 'profile2.png'
+  .large-8.columns.centered.baby-top-margined
+    %h3.grey.subheader.small-top-margined
+      Do you want to code professionally?
+    %h3.grey.subheader
+      Are you a motivated self-starter?
+    %h3.grey.subheader
+      Will You follow through? 
+.row.top-margined
+  .large-7.large-columns.large-centered.columns
+    .row.collapse
+      .large-4.columns
+        %span.prefix
+          first name
+      .large-8.columns
+        %input{ type: "text", id: "firstName", class: "validates-presence"}
+    .row.collapse
+      .large-4.columns
+        %span.prefix
+          last name
+      .large-8.columns
+        %input{ type: "text", id: "lastName", class: "validates-presence"}
+    .row.collapse
+      .large-4.columns
+        %span.prefix
+          email
+      .large-8.columns
+        %input{ type: "text", id: "email", class: "validates-presence"}
+    .row.collapse
+      .large-4.columns
+        %span.prefix
+          phone
+      .large-8.columns
+        %input{ type: "text", id: "phone", class: "validates-presence"}
+    .row.collapse
+      .large-4.columns
+        %span.prefix
+          linkedin profile url
+      .large-8.columns
+        %input{ type: "text", id: "linkedin", class: "validates-presence"}
+    .row.collapse
+      .large-4.columns
+        %span.prefix
+          github profile url
+      .large-8.columns
+        %input{ type: "text", id: "github", class: "validates-presence"}
+    .row.collapse
+      .large-4.columns
+        %span.prefix
+          personal intro video url
+      .large-8.columns
+        %input{ type: "text", id: "video", class: "validates-presence"}
+.row
+  .large-9.large-centered.columns
+    %blockquote.top-margined.centered
+      I look for motivated self-learners who will follow this process to fulfillment.  I must see that you understand how hard you will have to work and have made the proper commitment to make this a reality. I select only those who I know will put in the time and effort.  -@railstutor
+.row.baby-top-margined
+  .large-2.large-centered.columns.centered
+    %button{ class: "medium rounded", id: "apply"}
+      Apply
+= render "layouts/welcome"
+= render "layouts/email_error"
