@@ -30,7 +30,6 @@ class Student < ActiveRecord::Base
   end
 
   def self.route_welcome_message student
-    binding.pry
     if student.applied == true
       mail = StudentMailer.new_application_notif student
       mail.deliver
