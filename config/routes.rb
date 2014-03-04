@@ -5,10 +5,5 @@ Railstutor::Application.routes.draw do
   get 'veterans', to: redirect("/")
   get 'apply', to: 'main#apply'
   get 'freelance', to: 'main#freelance'
-  ["views", "controllers", "rubybasics", "models", "mvcroundtrip", "rubyobjects", "overview" ].each do |lesson|
-    get "curriculum/#{lesson}", to: "curriculum##{lesson}"
-  end
-  get "curriculum/", to: "curriculum#overview"
-  get "curriculum", to: "curriculum#overview"
   root :to  => "main#index"
 end
