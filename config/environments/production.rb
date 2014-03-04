@@ -6,14 +6,13 @@ Railstutor::Application.configure do
   #gmail settings
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
+    address:              'smtp.mailgun.org',
     port:                 587,
     domain:               'rubyonrailstutor.com',
-    user_name:            'john@rubyonrailstutor.com',
-    password:             ENV['RAILSTUTOR_GMAIL'],
-    authentication:       'plain',
+    user_name:            'postmaster@rubyonrailstutor.com',
+    password:             ENV['RAILSTUTOR_MAILGUN_POSTMASTER'],
+    authentication:       'STARTTLS',
     enable_starttls_auto: true  }
-
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
