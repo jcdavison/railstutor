@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_headers
-    headers['Access-Control-Allow-Origin'] = 'http://rubyonrailstutor.github.io/'
+    headers['Access-Control-Allow-Origin'] = 'http://rubyonrailstutor.github.io'
     headers['Access-Control-Allow-Methods'] = 'POST'
   end
 end
