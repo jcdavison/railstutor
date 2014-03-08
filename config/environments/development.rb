@@ -19,8 +19,7 @@ Railstutor::Application.configure do
     domain:               'rubyonrailstutor.com',
     user_name:            'postmaster@rubyonrailstutor.com',
     password:             ENV['RAILSTUTOR_MAILGUN_POSTMASTER'],
-    authentication:       'STARTTLS',
-    enable_starttls_auto: true  }
+    authentication:       :plain }
 
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
