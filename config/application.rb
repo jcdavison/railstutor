@@ -66,11 +66,10 @@ module Railstutor
     config.middleware.use Rack::Cors do
       allow do
         origins 'http://rubyonrailstutor.github.io'
-        resource '/join.json',
+        resource '*',
           :headers => ['Origin', 'Accept', 'Content-Type'],
           :methods => [:post]
       end
     end
-
   end
 end
