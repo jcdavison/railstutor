@@ -11,8 +11,7 @@ Railstutor::Application.configure do
     domain:               'rubyonrailstutor.com',
     user_name:            'postmaster@rubyonrailstutor.com',
     password:             ENV['RAILSTUTOR_MAILGUN_POSTMASTER'],
-    authentication:       'STARTTLS',
-    enable_starttls_auto: true  }
+    authentication:       :plain }
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
