@@ -63,5 +63,14 @@ module Railstutor
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    config.middleware.use Rack::Cors do
+      allow do
+        origins 'https://www.rubyonrailstutor.com/'
+        resource '/join.json',
+          :headers => ['Origin', 'Accept', 'Content-Type'],
+          :methods => [:post]
+      end
+    end
+
   end
 end
