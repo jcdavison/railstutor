@@ -14,7 +14,6 @@ class MainController < ApplicationController
 
   def join
     message = "Greetings #{params[:first_name].capitalize},"
-    binding.pry
     unless Student.in_process(params) == "rejected"
       respond_with do |format|
         format.json{
