@@ -6,6 +6,7 @@ class Student < ActiveRecord::Base
   before_create :validate_email_and_subscribe
 
   def self.in_process params
+    # this method is disgusting but I don't have time today to deal with it
     student = self.find_by_email params[:email]
     if params[:applied] == "true" && ! student
       student = self.create( first_name: params[:first_name], 
@@ -21,9 +22,13 @@ class Student < ActiveRecord::Base
         Student.route_welcome_message student
       return "applied"
     elsif params[:applied] == "false" && ! student
-      student = self.create( first_name: params[:first_name], 
+      student = self.new( first_name: params[:first_name], 
         last_name: params[:last_name], email: params[:email], applied: false)
-      return "created"
+      if student.save
+        return "created"
+      else
+        return "rejected"
+      end
     else params[:applied] == "false" && student
       return "rejected"
     end
@@ -89,12 +94,12 @@ class Student < ActiveRecord::Base
   end
 
   def valid_email?
-    #stubbing this method to return true in specs
     return false unless self.email
     email = CGI::escape self.email
     address = "address=#{email}"
     begin
       response = RestClient.get "https://api:#{RAILSTUTOR_PUBLIC_MAILGUN}@api.mailgun.net/v2/address/validate?#{address}"
+
     rescue => e
       return e.inspect
     end
