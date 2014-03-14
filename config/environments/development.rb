@@ -49,4 +49,13 @@ Railstutor::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+    allow do
+      origins 'http://localhost:4000' 
+      resource '*',
+        :headers => ['Origin', 'Accept', 'Content-Type'],
+        :methods => [:post]
+    end
+  end
 end
