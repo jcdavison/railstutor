@@ -65,8 +65,8 @@ module Railstutor
 
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
-        # origins 'http://rubyonrailstutor.github.io'
-        origins 'http://localhost:4000'
+        origins 'http://rubyonrailstutor.github.io'
+        # origins 'http://localhost:4000', 
         resource '*',
           :headers => ['Origin', 'Accept', 'Content-Type'],
           :methods => [:post]
