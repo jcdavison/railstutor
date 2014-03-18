@@ -44,11 +44,9 @@ class Student extends Validation
             email: @email
             applied: false
           success: (response) =>
-            console.log response
-            if response.status is 200
-              @confirm(response, "submit")
-            if response.status is 400
-              $('#emailerror').foundation('reveal', 'open');
+            @confirm(response, "submit")
+          error: (response) =>
+            $('#emailerror').foundation('reveal', 'open');
 
   confirm: (response, submit_context) ->
     $("#confirmationEmail").text response.email

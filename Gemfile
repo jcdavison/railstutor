@@ -16,6 +16,7 @@ gem "multimap", "~> 1.1.2"
 gem "font-awesome-rails"
 gem 'underscore-rails'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'spring', group: :development
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -26,9 +27,6 @@ group :assets do
   gem 'highlightjs-rails', git: 'https://github.com/sonkei/highlightjs-rails.git'
 end
 
-group :development do
-  gem 'zeus', require: nil
-end
 
 group :test, :development do 
   gem 'rspec-rails', '~> 2.0'
