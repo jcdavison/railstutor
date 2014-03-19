@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-  attr_accessible :email, :first_name, :info, :last_name, :paid, :phone, :linkedin, :github, :intro_video, :applied
+  attr_accessible :email, :first_name, :info, :last_name, :paid, :phone, :linkedin, :github, :intro_video, :applied, :twitter
 
   validates_presence_of :first_name, :last_name, :email
   validates_uniqueness_of :email
