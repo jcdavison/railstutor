@@ -23,7 +23,7 @@ class Student < ActiveRecord::Base
       return "applied"
     elsif params[:applied] == "false" && ! student
       student = self.new( first_name: params[:first_name], 
-        last_name: params[:last_name], email: params[:email], applied: false)
+        last_name: params[:last_name], email: params[:email], applied: false, twitter: params[:twitter])
       if student.save
         return "created"
       else
