@@ -4,6 +4,5 @@ Railstutor::Application.routes.draw do
   post 'join', to: 'main#join'
   get 'veterans', to: redirect("/")
   get 'apply', to: 'main#apply'
-  get 'freelance', to: 'main#freelance'
   root :to  => "main#index"
 end

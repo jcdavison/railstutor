@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
 
 gem 'rails', '3.2.14'
 gem "quiet_assets", "~> 1.0.1"
@@ -12,7 +11,6 @@ gem 'stripe-rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'markdown-rails'
 gem "rest-client", "~> 1.6.7"
-gem "multimap", "~> 1.1.2"
 gem "font-awesome-rails"
 gem 'underscore-rails'
 gem 'rack-cors', :require => 'rack/cors'
@@ -34,5 +32,4 @@ group :test, :development do
   gem "mocha", "~> 1.0.0"
   gem "database_cleaner", "~> 1.2.0"
   gem 'pry'
-  gem 'pry-debugger'
 end
