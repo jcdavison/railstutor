@@ -58,7 +58,7 @@ class Payment
   resetPage: () ->
     $('#closeThankYou').click ->
       mixpanel.track "closeThankYou"
-      window.location = "https://www.rubyonrailstutor.com/?thank_you=true"
+      window.location = "http://www.rubyonrailstutor.com/?thank_you=true"
     
   cardError: (errors = null) ->
     if errors
